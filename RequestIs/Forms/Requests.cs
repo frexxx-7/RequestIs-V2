@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace RequestIs.Forms
 {
@@ -86,6 +87,8 @@ namespace RequestIs.Forms
 
         private void loadInfoUsers()
         {
+            UserComboBox.Items.Clear();
+
             DB db = new DB();
             string queryInfo = $"SELECT id, concat(users.surname, ' ', users.name, ' ', users.patronymic) FROM users";
             MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
@@ -106,6 +109,8 @@ namespace RequestIs.Forms
         }
         private void loadInfoCategoryComboBox()
         {
+            CategoryComboBox.Items.Clear();
+
             DB db = new DB();
             string queryInfo = $"SELECT id, name FROM category";
             MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
@@ -342,6 +347,31 @@ namespace RequestIs.Forms
                     }
                 }
             }
+
+            AddButton.Text = "Добавить";
+            isEdit= false;
+            if (selectedTab == 0)
+            {
+                HeaderTextBox.Text = "";
+                ContentTextBox.Text = "";
+                UserComboBox.SelectedIndex = -1;
+                CategoryComboBox.SelectedIndex = -1;
+                dateRequestTimePicker.Value = DateTime.Now;
+            }
+            else
+            {
+                if (selectedTab == 1)
+                {
+                    NameCategoryTextBox.Text = "";
+                }
+                else
+                {
+                    if (selectedTab == 2)
+                    {
+                        StatusRequestTextBox.Text = "";
+                    }
+                }
+            }
         }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
@@ -364,15 +394,18 @@ namespace RequestIs.Forms
         private void guna2TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedTab = guna2TabControl1.SelectedIndex;
+            
             if (guna2TabControl1.SelectedIndex == 0)
             {
                 selectedDataGrid = RequestsDataGrid;
                 loadInfoRequests();
                 loadInfoUsers();
                 loadInfoCategoryComboBox();
+                ReportButton.Visible = true;
             }
             else
             {
+                ReportButton.Visible = false;
                 if (guna2TabControl1.SelectedIndex == 1)
                 {
                     selectedDataGrid = CategoryDataGrid;
@@ -387,6 +420,192 @@ namespace RequestIs.Forms
                     }
                 }
             }
+            selectedDataGrid.ClearSelection();
+        }
+        private void loadInfoOneRequest(string idRequest)
+        {
+            DB db = new DB();
+            string queryInfo = $"select requests.id, requests.idUser, requests.idCategory, requests.header, requests.content, concat(users.surname, ' ', users.name, ' ',users.patronymic) as FIOUser, category.name, dateRequest from requests " +
+                $"join users on users.id = requests.idUser " +
+                $"join category on category.id = requests.idCategory " +
+                $"where requests.id = {idRequest}";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                HeaderTextBox.Text = reader["header"].ToString();
+                ContentTextBox.Text = reader["content"].ToString();
+                for (int i = 0; i < UserComboBox.Items.Count; i++)
+                {
+                    if (reader["idUser"].ToString() != "")
+                    {
+                        if (Convert.ToInt32((UserComboBox.Items[i] as ComboBoxItem).Value) == Convert.ToInt32(reader["idUser"]))
+                        {
+                            UserComboBox.SelectedIndex = i;
+                        }
+                    }
+                }
+                for (int i = 0; i < CategoryComboBox.Items.Count; i++)
+                {
+                    if (reader["idCategory"].ToString() != "")
+                    {
+                        if (Convert.ToInt32((CategoryComboBox.Items[i] as ComboBoxItem).Value) == Convert.ToInt32(reader["idCategory"]))
+                        {
+                            CategoryComboBox.SelectedIndex = i;
+                        }
+                    }
+                }
+                dateRequestTimePicker.Value = Convert.ToDateTime(reader["dateRequest"].ToString());
+            }
+            reader.Close();
+
+            db.closeConnection();
+        }
+        private void loadInfoOneCategory(string idCategory)
+        {
+            DB db = new DB();
+            string queryInfo = $"select * from category " +
+                $"where category.id = {idCategory}";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                NameCategoryTextBox.Text = reader["name"].ToString();
+            }
+            reader.Close();
+
+            db.closeConnection();
+        }
+        private void loadInfoOneStatus(string idStatus)
+        {
+            DB db = new DB();
+            string queryInfo = $"select * from statusrequest " +
+                $"where statusrequest.id = {idStatus}";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                StatusRequestTextBox.Text = reader["name"].ToString();
+            }
+            reader.Close();
+
+            db.closeConnection();
+        }
+        private void EditButton_Click(object sender, EventArgs e)
+        {
+            isEdit = true;
+            AddButton.Text = "Сохранить";
+            if(selectedTab == 0)
+            {
+                loadInfoOneRequest(selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+            }
+            else
+            {
+                if (selectedTab == 1)
+                {
+                    loadInfoOneCategory(selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                }
+                else
+                {
+                    if (selectedTab == 2)
+                    {
+                        loadInfoOneStatus(selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                    }
+                }
+            }
+        }
+        private void deleteRecordInBd(string tableName, string id)
+        {
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand($"delete from {tableName} where id = {id}", db.getConnection());
+            db.openConnection();
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Запись удалена");
+
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            db.closeConnection();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (selectedTab == 0)
+            {
+                deleteRecordInBd("requests", selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                loadInfoRequests();
+            }
+            else
+            {
+                if (selectedTab == 1)
+                {
+                    deleteRecordInBd("category", selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                    loadInfoCategory();
+                }
+                else
+                {
+                    if (selectedTab == 2)
+                    {
+                        deleteRecordInBd("statusrequest", selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                        loadInfoStatusRequest();
+                    }
+                }
+            }
+        }
+
+        private void ReportButton_Click(object sender, EventArgs e)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook = excelApp.Workbooks.Add();
+            Excel.Worksheet worksheet = workbook.ActiveSheet;
+            for (int j = 0; j < RequestsDataGrid.Columns.Count; j++)
+            {
+                if (RequestsDataGrid.Columns[j].Visible)
+                {
+                    worksheet.Cells[1, j] = RequestsDataGrid.Columns[j].HeaderText;
+                }
+            }
+            for (int i = 0; i < RequestsDataGrid.Rows.Count; i++)
+            {
+                for (int j = 0; j < RequestsDataGrid.Columns.Count; j++)
+                {
+                    if (RequestsDataGrid.Columns[j].Visible)
+                    {
+                        worksheet.Cells[i + 2, j] = RequestsDataGrid.Rows[i].Cells[j].Value;
+                    }
+                }
+            }
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Excel File|*.xlsx";
+            saveFileDialog1.Title = "Сохранить Excel файл";
+            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.FileName != "")
+            {
+                workbook.SaveAs(saveFileDialog1.FileName);
+            }
+            workbook.Close();
+            excelApp.Quit();
+        }
+
+        private void EmployeeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new Employee().Show();
         }
     }
 }

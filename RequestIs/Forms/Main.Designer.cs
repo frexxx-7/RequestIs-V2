@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.EmployeeButton = new Guna.UI2.WinForms.Guna2Button();
             this.DeleteButton = new Guna.UI2.WinForms.Guna2Button();
             this.AddButton = new Guna.UI2.WinForms.Guna2Button();
             this.MainButton = new Guna.UI2.WinForms.Guna2Button();
@@ -42,7 +43,6 @@
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.ContentPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.EmployeeButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
             this.HeadPanel.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +60,24 @@
             this.guna2Panel1.Name = "guna2Panel1";
             this.guna2Panel1.Size = new System.Drawing.Size(1046, 73);
             this.guna2Panel1.TabIndex = 0;
+            // 
+            // EmployeeButton
+            // 
+            this.EmployeeButton.BorderThickness = 1;
+            this.EmployeeButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.EmployeeButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.EmployeeButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.EmployeeButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.EmployeeButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.EmployeeButton.FillColor = System.Drawing.Color.Brown;
+            this.EmployeeButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.EmployeeButton.ForeColor = System.Drawing.Color.White;
+            this.EmployeeButton.Location = new System.Drawing.Point(277, 0);
+            this.EmployeeButton.Name = "EmployeeButton";
+            this.EmployeeButton.Size = new System.Drawing.Size(151, 73);
+            this.EmployeeButton.TabIndex = 6;
+            this.EmployeeButton.Text = "Сотрудники";
+            this.EmployeeButton.Click += new System.EventHandler(this.EmployeeButton_Click);
             // 
             // DeleteButton
             // 
@@ -214,23 +232,6 @@
             this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2DragControl1.TargetControl = this.HeadPanel;
             this.guna2DragControl1.UseTransparentDrag = true;
-            // 
-            // EmployeeButton
-            // 
-            this.EmployeeButton.BorderThickness = 1;
-            this.EmployeeButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.EmployeeButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.EmployeeButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.EmployeeButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.EmployeeButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.EmployeeButton.FillColor = System.Drawing.Color.Brown;
-            this.EmployeeButton.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.EmployeeButton.ForeColor = System.Drawing.Color.White;
-            this.EmployeeButton.Location = new System.Drawing.Point(277, 0);
-            this.EmployeeButton.Name = "EmployeeButton";
-            this.EmployeeButton.Size = new System.Drawing.Size(151, 73);
-            this.EmployeeButton.TabIndex = 6;
-            this.EmployeeButton.Text = "Сотрудники";
             // 
             // Main
             // 

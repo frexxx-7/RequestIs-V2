@@ -30,14 +30,20 @@ namespace RequestIs.Forms
 
         private void Request_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             new Requests().Show();
         }
 
         private void UsersButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             new Users().Show();
+        }
+
+        private void EmployeeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new Employee().Show();
         }
     }
 }

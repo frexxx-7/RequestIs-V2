@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Web.Routing;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace RequestIs.Forms
 {
@@ -24,6 +25,7 @@ namespace RequestIs.Forms
         public Users()
         {
             InitializeComponent();
+            UsersDataGrid.ClearSelection();
         }
         private void loadInfoRegions()
         {
@@ -88,6 +90,8 @@ namespace RequestIs.Forms
         }
         private void loadInfoRegionComboBox()
         {
+            RegionComboBox.Items.Clear();
+
             DB db = new DB();
             string queryInfo = $"SELECT id, name FROM region";
             MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
@@ -140,6 +144,7 @@ namespace RequestIs.Forms
         }
         private void loadInfoAreaComboBox()
         {
+            AreaComboBox.Items.Clear();
             DB db = new DB();
             string queryInfo = $"SELECT id, name FROM area";
             MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
@@ -160,6 +165,8 @@ namespace RequestIs.Forms
         }
         private void loadInfoLocalityComboBox()
         {
+            LocalityComboBox.Items.Clear();
+
             DB db = new DB();
             string queryInfo = $"SELECT locality.id, concat(area.name, ' ', region.name, ' ', locality.name, ' ') as address FROM locality " +
                 $"join area on area.id = locality.idArea " +
@@ -479,19 +486,61 @@ namespace RequestIs.Forms
                     }
                 }
             }
+
+            AddButton.Text = "Добавить";
+            isEdit = false;
+            if (selectedTab == 0)
+            {
+                SurnameTextBox.Text = "";
+                NameTextBox.Text = "";
+                PatronymicTextBox.Text = "";
+                NumberPhoneTextBox.Text = "";
+                EmailTextBox.Text = "";
+                LocalityComboBox.SelectedIndex = -1;
+                StreetTextBox.Text = "";
+                HouseTextBox.Text = "";
+                ApartmentTextBox.Text = "";
+            }
+            else
+            {
+                if (selectedTab == 1)
+                {
+                    AreaComboBox.SelectedIndex = -1;
+                    TypeTextBox.Text = "";
+                    NameLocTextBox.Text= "";
+                }
+                else
+                {
+                    if (selectedTab == 2)
+                    {
+                        RegionComboBox.SelectedIndex = -1;
+                        NameAreaTextBox.Text = "";
+                    }
+                    else
+                    {
+                        if (selectedTab == 3)
+                        {
+                            NameRegionTextBox.Text = "";
+                        }
+                    }
+                }
+            }
         }
 
         private void guna2TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedTab = guna2TabControl1.SelectedIndex;
+            
             if (guna2TabControl1.SelectedIndex == 0)
             {
                 selectedDataGrid = UsersDataGrid;
                 loadInfoLocalityComboBox();
                 loadInfoUsers();
+                ReportButton.Visible = true;
             }
             else
             {
+                ReportButton.Visible = false;
                 if (guna2TabControl1.SelectedIndex == 1)
                 {
                     selectedDataGrid = LocalityDataGridView;
@@ -516,11 +565,254 @@ namespace RequestIs.Forms
                     }
                 }
             }
+
+            selectedDataGrid.ClearSelection();
         }
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void loadInfoOneUser(string idUser)
+        {
+            DB db = new DB();
+            string queryInfo = $"select users.id, idLocality, users.surname, users.name, users.patronymic, users.numberPhone, " +
+                $"users.email, concat(area.name, ' ', region.name, ' ', locality.name, ' ') as address, users.street, users.house, users.apartment from users " +
+                $"join locality on locality.id = users.idLocality " +
+                $"join area on area.id = locality.idArea " +
+                $"join region on region.id = area.idRegion " +
+            $"where users.id = {idUser}";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                SurnameTextBox.Text = reader["surname"].ToString();
+                NameTextBox.Text = reader["name"].ToString();
+                PatronymicTextBox.Text = reader["patronymic"].ToString();
+                NumberPhoneTextBox.Text = reader["numberPhone"].ToString();
+                EmailTextBox.Text = reader["email"].ToString();
+
+                for (int i = 0; i < LocalityComboBox.Items.Count; i++)
+                {
+                    if (reader["idLocality"].ToString() != "")
+                    {
+                        if (Convert.ToInt32((LocalityComboBox.Items[i] as ComboBoxItem).Value) == Convert.ToInt32(reader["idLocality"]))
+                        {
+                            LocalityComboBox.SelectedIndex = i;
+                        }
+                    }
+                }
+
+                StreetTextBox.Text = reader["street"].ToString();
+                HouseTextBox.Text = reader["house"].ToString();
+                ApartmentTextBox.Text = reader["apartment"].ToString();
+            }
+            reader.Close();
+
+            db.closeConnection();
+        }
+        private void loadInfoOneLocality(string idLocality)
+        {
+            DB db = new DB();
+            string queryInfo = $"select * from locality " +
+            $"where locality.id = {idLocality}";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                for (int i = 0; i < AreaComboBox.Items.Count; i++)
+                {
+                    if (reader["idArea"].ToString() != "")
+                    {
+                        if (Convert.ToInt32((AreaComboBox.Items[i] as ComboBoxItem).Value) == Convert.ToInt32(reader["idArea"]))
+                        {
+                            AreaComboBox.SelectedIndex = i;
+                        }
+                    }
+                }
+                TypeTextBox.Text = reader["type"].ToString();
+                NameLocTextBox.Text = reader["name"].ToString();
+            }
+            reader.Close();
+
+            db.closeConnection();
+        }
+        private void loadInfoOneArea(string idArea)
+        {
+            DB db = new DB();
+            string queryInfo = $"select * from area " +
+            $"where area.id = {idArea}";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                for (int i = 0; i < RegionComboBox.Items.Count; i++)
+                {
+                    if (reader["idRegion"].ToString() != "")
+                    {
+                        if (Convert.ToInt32((RegionComboBox.Items[i] as ComboBoxItem).Value) == Convert.ToInt32(reader["idRegion"]))
+                        {
+                            RegionComboBox.SelectedIndex = i;
+                        }
+                    }
+                }
+                NameAreaTextBox.Text = reader["name"].ToString();
+            }
+            reader.Close();
+
+            db.closeConnection();
+        }
+        private void loadInfoOneRegion(string idRegion)
+        {
+            DB db = new DB();
+            string queryInfo = $"select * from region " +
+            $"where id = {idRegion}";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                NameRegionTextBox.Text = reader["name"].ToString();
+            }
+            reader.Close();
+
+            db.closeConnection();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            isEdit = true;
+            AddButton.Text = "Сохранить";
+            if (selectedTab == 0)
+            {
+                loadInfoOneUser(selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+            }
+            else
+            {
+                if (selectedTab == 1)
+                {
+                    loadInfoOneLocality(selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                }
+                else
+                {
+                    if (selectedTab == 2)
+                    {
+                        loadInfoOneArea(selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                    }
+                    else
+                    {
+                        if (selectedTab == 3)
+                        {
+                            loadInfoOneRegion(selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                        }
+                    }
+                }
+            }
+        }
+
+        private void deleteRecordInBd(string tableName, string id)
+        {
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand($"delete from {tableName} where id = {id}", db.getConnection());
+            db.openConnection();
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("Запись удалена");
+
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            db.closeConnection();
+        }
+
+        private void DeleteButton_Click(object sender, EventArgs e)
+        {
+            if (selectedTab == 0)
+            {
+                deleteRecordInBd("users", selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                loadInfoUsers();
+            }
+            else
+            {
+                if (selectedTab == 1)
+                {
+                    deleteRecordInBd("locality", selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                    loadInfoLocality();
+                }
+                else
+                {
+                    if (selectedTab == 2)
+                    {
+                        deleteRecordInBd("area", selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                        loadInfoArea();
+                    }
+                    else
+                    {
+                        if (selectedTab == 3)
+                        {
+                            deleteRecordInBd("region", selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                            loadInfoRegions();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ReportButton_Click(object sender, EventArgs e)
+        {
+            Excel.Application excelApp = new Excel.Application();
+            Excel.Workbook workbook = excelApp.Workbooks.Add();
+            Excel.Worksheet worksheet = workbook.ActiveSheet;
+            for (int j = 0; j < UsersDataGrid.Columns.Count; j++)
+            {
+                if (UsersDataGrid.Columns[j].Visible)
+                {
+                    worksheet.Cells[1, j] = UsersDataGrid.Columns[j].HeaderText;
+                }
+            }
+            for (int i = 0; i < UsersDataGrid.Rows.Count; i++)
+            {
+                for (int j = 0; j < UsersDataGrid.Columns.Count; j++)
+                {
+                    if (UsersDataGrid.Columns[j].Visible)
+                    {
+                        worksheet.Cells[i + 2, j] = UsersDataGrid.Rows[i].Cells[j].Value;
+                    }
+                }
+            }
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "Excel File|*.xlsx";
+            saveFileDialog1.Title = "Сохранить Excel файл";
+            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.FileName != "")
+            {
+                workbook.SaveAs(saveFileDialog1.FileName);
+            }
+            workbook.Close();
+            excelApp.Quit();
+        }
+
+        private void EmployeeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new Employee().Show();
         }
     }
 }
