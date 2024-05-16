@@ -59,5 +59,27 @@ namespace RequestIs.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_apply_for_jobs_abstract_concept_vector_illustration_picture_image_8320434 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-apply-for-jobs-abstract-concept-vector-illustration-picture-image_8320434" +
+                        "", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngtree_apply_for_jobs_abstract_concept_vector_illustration_picture_image_83204341 {
+            get {
+                object obj = ResourceManager.GetObject("pngtree-apply-for-jobs-abstract-concept-vector-illustration-picture-image_8320434" +
+                        "1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

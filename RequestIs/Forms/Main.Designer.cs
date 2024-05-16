@@ -41,10 +41,12 @@
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.ContentPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.ContentPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.guna2Panel1.SuspendLayout();
             this.HeadPanel.SuspendLayout();
+            this.ContentPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Panel1
@@ -70,7 +72,7 @@
             this.EmployeeButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.EmployeeButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.EmployeeButton.FillColor = System.Drawing.Color.Brown;
-            this.EmployeeButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.EmployeeButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.EmployeeButton.ForeColor = System.Drawing.Color.White;
             this.EmployeeButton.Location = new System.Drawing.Point(277, 0);
             this.EmployeeButton.Name = "EmployeeButton";
@@ -88,7 +90,7 @@
             this.DeleteButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.DeleteButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.DeleteButton.FillColor = System.Drawing.Color.Brown;
-            this.DeleteButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.DeleteButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DeleteButton.ForeColor = System.Drawing.Color.White;
             this.DeleteButton.Location = new System.Drawing.Point(762, 0);
             this.DeleteButton.Name = "DeleteButton";
@@ -105,7 +107,7 @@
             this.AddButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.AddButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.AddButton.FillColor = System.Drawing.Color.Brown;
-            this.AddButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.AddButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddButton.ForeColor = System.Drawing.Color.White;
             this.AddButton.Location = new System.Drawing.Point(904, 0);
             this.AddButton.Name = "AddButton";
@@ -123,7 +125,7 @@
             this.MainButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.MainButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.MainButton.FillColor = System.Drawing.Color.Brown;
-            this.MainButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.MainButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainButton.ForeColor = System.Drawing.Color.White;
             this.MainButton.Location = new System.Drawing.Point(428, 0);
             this.MainButton.Name = "MainButton";
@@ -141,7 +143,7 @@
             this.UsersButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.UsersButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.UsersButton.FillColor = System.Drawing.Color.Brown;
-            this.UsersButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.UsersButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UsersButton.ForeColor = System.Drawing.Color.White;
             this.UsersButton.Location = new System.Drawing.Point(126, 0);
             this.UsersButton.Name = "UsersButton";
@@ -159,7 +161,7 @@
             this.Request.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Request.Dock = System.Windows.Forms.DockStyle.Left;
             this.Request.FillColor = System.Drawing.Color.Brown;
-            this.Request.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.Request.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Request.ForeColor = System.Drawing.Color.White;
             this.Request.Location = new System.Drawing.Point(0, 0);
             this.Request.Name = "Request";
@@ -219,19 +221,35 @@
             this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox2.TabIndex = 11;
             // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this.HeadPanel;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
             // ContentPanel
             // 
+            this.ContentPanel.BackgroundImage = global::RequestIs.Properties.Resources.pngtree_apply_for_jobs_abstract_concept_vector_illustration_picture_image_83204341;
+            this.ContentPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ContentPanel.Controls.Add(this.label1);
             this.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContentPanel.Location = new System.Drawing.Point(0, 42);
             this.ContentPanel.Name = "ContentPanel";
             this.ContentPanel.Size = new System.Drawing.Size(1046, 438);
             this.ContentPanel.TabIndex = 2;
             // 
-            // guna2DragControl1
+            // label1
             // 
-            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this.HeadPanel;
-            this.guna2DragControl1.UseTransparentDrag = true;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.Brown;
+            this.label1.Location = new System.Drawing.Point(502, 161);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(481, 136);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Учет заявок от населения РУП \r\nГродненский филиал узла связи \r\n«Белтелеком»\r\n\r\n";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // Main
             // 
@@ -249,6 +267,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.guna2Panel1.ResumeLayout(false);
             this.HeadPanel.ResumeLayout(false);
+            this.ContentPanel.ResumeLayout(false);
+            this.ContentPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -269,5 +289,6 @@
         private Guna.UI2.WinForms.Guna2Panel ContentPanel;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2Button EmployeeButton;
+        private System.Windows.Forms.Label label1;
     }
 }

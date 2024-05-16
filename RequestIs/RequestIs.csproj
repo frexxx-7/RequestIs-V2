@@ -168,5 +168,11 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-apply-for-jobs-abstract-concept-vector-illustration-picture-image_8320434.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-apply-for-jobs-abstract-concept-vector-illustration-picture-image_83204341.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

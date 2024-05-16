@@ -29,77 +29,77 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.EditButton = new Guna.UI2.WinForms.Guna2Button();
+            this.EmployeeButton = new Guna.UI2.WinForms.Guna2Button();
             this.DeleteButton = new Guna.UI2.WinForms.Guna2Button();
             this.AddButton = new Guna.UI2.WinForms.Guna2Button();
             this.MainButton = new Guna.UI2.WinForms.Guna2Button();
             this.UsersButton = new Guna.UI2.WinForms.Guna2Button();
             this.Request = new Guna.UI2.WinForms.Guna2Button();
             this.HeadPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.ReportButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2ControlBox2 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.ContentPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2TabControl1 = new Guna.UI2.WinForms.Guna2TabControl();
             this.RequestsTab = new System.Windows.Forms.TabPage();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.RequestsDataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.HeaderTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.ContentTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.UserComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CategoryComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.dateRequestTimePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
             this.idColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.header = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Content = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CategoryCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateRequest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateRequestTimePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CategoryComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.UserComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.ContentTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.HeaderTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.CategoryTab = new System.Windows.Forms.TabPage();
-            this.StatusRequestTab = new System.Windows.Forms.TabPage();
-            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
-            this.NameCategoryTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.CategoryDataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
-            this.StatusRequestTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Panel3 = new Guna.UI2.WinForms.Guna2Panel();
+            this.NameCategoryTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.StatusRequestTab = new System.Windows.Forms.TabPage();
             this.StatusRequestDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EmployeeButton = new Guna.UI2.WinForms.Guna2Button();
-            this.EditButton = new Guna.UI2.WinForms.Guna2Button();
-            this.ReportButton = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Panel4 = new Guna.UI2.WinForms.Guna2Panel();
+            this.StatusRequestTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2Panel1.SuspendLayout();
             this.HeadPanel.SuspendLayout();
             this.ContentPanel.SuspendLayout();
             this.guna2TabControl1.SuspendLayout();
             this.RequestsTab.SuspendLayout();
-            this.guna2Panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RequestsDataGrid)).BeginInit();
+            this.guna2Panel2.SuspendLayout();
             this.CategoryTab.SuspendLayout();
-            this.StatusRequestTab.SuspendLayout();
-            this.guna2Panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CategoryDataGrid)).BeginInit();
-            this.guna2Panel4.SuspendLayout();
+            this.guna2Panel3.SuspendLayout();
+            this.StatusRequestTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.StatusRequestDataGridView)).BeginInit();
+            this.guna2Panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2Elipse1
@@ -121,6 +121,42 @@
             this.guna2Panel1.Size = new System.Drawing.Size(1083, 73);
             this.guna2Panel1.TabIndex = 1;
             // 
+            // EditButton
+            // 
+            this.EditButton.BorderThickness = 1;
+            this.EditButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.EditButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.EditButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.EditButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.EditButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.EditButton.FillColor = System.Drawing.Color.Brown;
+            this.EditButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditButton.ForeColor = System.Drawing.Color.White;
+            this.EditButton.Location = new System.Drawing.Point(641, 0);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(158, 73);
+            this.EditButton.TabIndex = 8;
+            this.EditButton.Text = "Редактировать";
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+            // 
+            // EmployeeButton
+            // 
+            this.EmployeeButton.BorderThickness = 1;
+            this.EmployeeButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.EmployeeButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.EmployeeButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.EmployeeButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.EmployeeButton.Dock = System.Windows.Forms.DockStyle.Left;
+            this.EmployeeButton.FillColor = System.Drawing.Color.Brown;
+            this.EmployeeButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EmployeeButton.ForeColor = System.Drawing.Color.White;
+            this.EmployeeButton.Location = new System.Drawing.Point(314, 0);
+            this.EmployeeButton.Name = "EmployeeButton";
+            this.EmployeeButton.Size = new System.Drawing.Size(151, 73);
+            this.EmployeeButton.TabIndex = 5;
+            this.EmployeeButton.Text = "Сотрудники";
+            this.EmployeeButton.Click += new System.EventHandler(this.EmployeeButton_Click);
+            // 
             // DeleteButton
             // 
             this.DeleteButton.BorderThickness = 1;
@@ -130,7 +166,7 @@
             this.DeleteButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.DeleteButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.DeleteButton.FillColor = System.Drawing.Color.Brown;
-            this.DeleteButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.DeleteButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DeleteButton.ForeColor = System.Drawing.Color.White;
             this.DeleteButton.Location = new System.Drawing.Point(799, 0);
             this.DeleteButton.Name = "DeleteButton";
@@ -148,7 +184,7 @@
             this.AddButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.AddButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.AddButton.FillColor = System.Drawing.Color.Brown;
-            this.AddButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.AddButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddButton.ForeColor = System.Drawing.Color.White;
             this.AddButton.Location = new System.Drawing.Point(941, 0);
             this.AddButton.Name = "AddButton";
@@ -167,7 +203,7 @@
             this.MainButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.MainButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.MainButton.FillColor = System.Drawing.Color.Brown;
-            this.MainButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.MainButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainButton.ForeColor = System.Drawing.Color.White;
             this.MainButton.Location = new System.Drawing.Point(465, 0);
             this.MainButton.Name = "MainButton";
@@ -185,7 +221,7 @@
             this.UsersButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.UsersButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.UsersButton.FillColor = System.Drawing.Color.Brown;
-            this.UsersButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.UsersButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UsersButton.ForeColor = System.Drawing.Color.White;
             this.UsersButton.Location = new System.Drawing.Point(126, 0);
             this.UsersButton.Name = "UsersButton";
@@ -203,7 +239,7 @@
             this.Request.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Request.Dock = System.Windows.Forms.DockStyle.Left;
             this.Request.FillColor = System.Drawing.Color.Brown;
-            this.Request.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.Request.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Request.ForeColor = System.Drawing.Color.White;
             this.Request.Location = new System.Drawing.Point(0, 0);
             this.Request.Name = "Request";
@@ -222,6 +258,23 @@
             this.HeadPanel.Name = "HeadPanel";
             this.HeadPanel.Size = new System.Drawing.Size(1083, 42);
             this.HeadPanel.TabIndex = 2;
+            // 
+            // ReportButton
+            // 
+            this.ReportButton.BorderRadius = 5;
+            this.ReportButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ReportButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ReportButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ReportButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ReportButton.FillColor = System.Drawing.Color.Brown;
+            this.ReportButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.ReportButton.ForeColor = System.Drawing.Color.White;
+            this.ReportButton.Location = new System.Drawing.Point(7, 4);
+            this.ReportButton.Name = "ReportButton";
+            this.ReportButton.Size = new System.Drawing.Size(148, 32);
+            this.ReportButton.TabIndex = 14;
+            this.ReportButton.Text = "Отчет";
+            this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
             // 
             // guna2ControlBox1
             // 
@@ -268,18 +321,13 @@
             this.ContentPanel.Size = new System.Drawing.Size(1083, 578);
             this.ContentPanel.TabIndex = 3;
             // 
-            // guna2DragControl1
-            // 
-            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.TargetControl = this.HeadPanel;
-            this.guna2DragControl1.UseTransparentDrag = true;
-            // 
             // guna2TabControl1
             // 
             this.guna2TabControl1.Controls.Add(this.RequestsTab);
             this.guna2TabControl1.Controls.Add(this.CategoryTab);
             this.guna2TabControl1.Controls.Add(this.StatusRequestTab);
             this.guna2TabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2TabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.guna2TabControl1.ItemSize = new System.Drawing.Size(180, 40);
             this.guna2TabControl1.Location = new System.Drawing.Point(0, 0);
             this.guna2TabControl1.Name = "guna2TabControl1";
@@ -319,6 +367,114 @@
             this.RequestsTab.Text = "Заявки";
             this.RequestsTab.UseVisualStyleBackColor = true;
             // 
+            // RequestsDataGrid
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.RequestsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RequestsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.RequestsDataGrid.ColumnHeadersHeight = 36;
+            this.RequestsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.RequestsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idColumn,
+            this.header,
+            this.Content,
+            this.userColumn,
+            this.CategoryCol,
+            this.dateRequest});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RequestsDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.RequestsDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.RequestsDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.RequestsDataGrid.Location = new System.Drawing.Point(3, 3);
+            this.RequestsDataGrid.Name = "RequestsDataGrid";
+            this.RequestsDataGrid.ReadOnly = true;
+            this.RequestsDataGrid.RowHeadersVisible = false;
+            this.RequestsDataGrid.RowHeadersWidth = 51;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Brown;
+            this.RequestsDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.RequestsDataGrid.RowTemplate.Height = 24;
+            this.RequestsDataGrid.Size = new System.Drawing.Size(746, 524);
+            this.RequestsDataGrid.TabIndex = 1;
+            this.RequestsDataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.RequestsDataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.RequestsDataGrid.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.RequestsDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.RequestsDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.RequestsDataGrid.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.RequestsDataGrid.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.RequestsDataGrid.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.RequestsDataGrid.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.RequestsDataGrid.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RequestsDataGrid.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.RequestsDataGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.RequestsDataGrid.ThemeStyle.HeaderStyle.Height = 36;
+            this.RequestsDataGrid.ThemeStyle.ReadOnly = true;
+            this.RequestsDataGrid.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.RequestsDataGrid.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.RequestsDataGrid.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.RequestsDataGrid.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Transparent;
+            this.RequestsDataGrid.ThemeStyle.RowsStyle.Height = 24;
+            this.RequestsDataGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.RequestsDataGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // idColumn
+            // 
+            this.idColumn.HeaderText = "id";
+            this.idColumn.MinimumWidth = 6;
+            this.idColumn.Name = "idColumn";
+            this.idColumn.ReadOnly = true;
+            this.idColumn.Visible = false;
+            // 
+            // header
+            // 
+            this.header.HeaderText = "Заголовок";
+            this.header.MinimumWidth = 6;
+            this.header.Name = "header";
+            this.header.ReadOnly = true;
+            // 
+            // Content
+            // 
+            this.Content.HeaderText = "Текст";
+            this.Content.MinimumWidth = 6;
+            this.Content.Name = "Content";
+            this.Content.ReadOnly = true;
+            // 
+            // userColumn
+            // 
+            this.userColumn.HeaderText = "Пользователь";
+            this.userColumn.MinimumWidth = 6;
+            this.userColumn.Name = "userColumn";
+            this.userColumn.ReadOnly = true;
+            // 
+            // CategoryCol
+            // 
+            this.CategoryCol.HeaderText = "Категория";
+            this.CategoryCol.MinimumWidth = 6;
+            this.CategoryCol.Name = "CategoryCol";
+            this.CategoryCol.ReadOnly = true;
+            // 
+            // dateRequest
+            // 
+            this.dateRequest.HeaderText = "Дата обращения";
+            this.dateRequest.MinimumWidth = 6;
+            this.dateRequest.Name = "dateRequest";
+            this.dateRequest.ReadOnly = true;
+            // 
             // guna2Panel2
             // 
             this.guna2Panel2.Controls.Add(this.label3);
@@ -335,141 +491,31 @@
             this.guna2Panel2.Size = new System.Drawing.Size(323, 524);
             this.guna2Panel2.TabIndex = 0;
             // 
-            // RequestsDataGrid
+            // label3
             // 
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.White;
-            this.RequestsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RequestsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
-            this.RequestsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RequestsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idColumn,
-            this.header,
-            this.Content,
-            this.userColumn,
-            this.CategoryCol,
-            this.dateRequest});
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RequestsDataGrid.DefaultCellStyle = dataGridViewCellStyle39;
-            this.RequestsDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RequestsDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.RequestsDataGrid.Location = new System.Drawing.Point(3, 3);
-            this.RequestsDataGrid.Name = "RequestsDataGrid";
-            this.RequestsDataGrid.RowHeadersVisible = false;
-            this.RequestsDataGrid.RowHeadersWidth = 51;
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Brown;
-            this.RequestsDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle40;
-            this.RequestsDataGrid.RowTemplate.Height = 24;
-            this.RequestsDataGrid.Size = new System.Drawing.Size(746, 524);
-            this.RequestsDataGrid.TabIndex = 1;
-            this.RequestsDataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.RequestsDataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.RequestsDataGrid.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.RequestsDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.RequestsDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.RequestsDataGrid.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.RequestsDataGrid.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.RequestsDataGrid.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.RequestsDataGrid.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.RequestsDataGrid.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RequestsDataGrid.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.RequestsDataGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.RequestsDataGrid.ThemeStyle.HeaderStyle.Height = 36;
-            this.RequestsDataGrid.ThemeStyle.ReadOnly = false;
-            this.RequestsDataGrid.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.RequestsDataGrid.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.RequestsDataGrid.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.RequestsDataGrid.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Transparent;
-            this.RequestsDataGrid.ThemeStyle.RowsStyle.Height = 24;
-            this.RequestsDataGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.RequestsDataGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.ForeColor = System.Drawing.Color.Brown;
+            this.label3.Location = new System.Drawing.Point(13, 352);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(140, 20);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Дата обращения";
             // 
-            // HeaderTextBox
+            // dateRequestTimePicker
             // 
-            this.HeaderTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.HeaderTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.HeaderTextBox.BorderRadius = 10;
-            this.HeaderTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.HeaderTextBox.DefaultText = "";
-            this.HeaderTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.HeaderTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.HeaderTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.HeaderTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.HeaderTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.HeaderTextBox.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.HeaderTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.HeaderTextBox.Location = new System.Drawing.Point(17, 21);
-            this.HeaderTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.HeaderTextBox.Name = "HeaderTextBox";
-            this.HeaderTextBox.PasswordChar = '\0';
-            this.HeaderTextBox.PlaceholderText = "Заголовок";
-            this.HeaderTextBox.SelectedText = "";
-            this.HeaderTextBox.Size = new System.Drawing.Size(292, 35);
-            this.HeaderTextBox.TabIndex = 4;
-            // 
-            // ContentTextBox
-            // 
-            this.ContentTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ContentTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ContentTextBox.BorderRadius = 10;
-            this.ContentTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ContentTextBox.DefaultText = "";
-            this.ContentTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.ContentTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.ContentTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ContentTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.ContentTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ContentTextBox.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.ContentTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ContentTextBox.Location = new System.Drawing.Point(17, 78);
-            this.ContentTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ContentTextBox.Multiline = true;
-            this.ContentTextBox.Name = "ContentTextBox";
-            this.ContentTextBox.PasswordChar = '\0';
-            this.ContentTextBox.PlaceholderText = "Текст";
-            this.ContentTextBox.SelectedText = "";
-            this.ContentTextBox.Size = new System.Drawing.Size(292, 93);
-            this.ContentTextBox.TabIndex = 5;
-            // 
-            // UserComboBox
-            // 
-            this.UserComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.UserComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.UserComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.UserComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.UserComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.UserComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.UserComboBox.ForeColor = System.Drawing.Color.Brown;
-            this.UserComboBox.ItemHeight = 30;
-            this.UserComboBox.Location = new System.Drawing.Point(17, 218);
-            this.UserComboBox.Name = "UserComboBox";
-            this.UserComboBox.Size = new System.Drawing.Size(292, 36);
-            this.UserComboBox.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.Brown;
-            this.label1.Location = new System.Drawing.Point(13, 195);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 20);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Пользователь";
+            this.dateRequestTimePicker.Checked = true;
+            this.dateRequestTimePicker.FillColor = System.Drawing.Color.Brown;
+            this.dateRequestTimePicker.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.dateRequestTimePicker.ForeColor = System.Drawing.Color.White;
+            this.dateRequestTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.dateRequestTimePicker.Location = new System.Drawing.Point(17, 375);
+            this.dateRequestTimePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.dateRequestTimePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.dateRequestTimePicker.Name = "dateRequestTimePicker";
+            this.dateRequestTimePicker.Size = new System.Drawing.Size(292, 36);
+            this.dateRequestTimePicker.TabIndex = 10;
+            this.dateRequestTimePicker.Value = new System.DateTime(2024, 4, 26, 2, 35, 28, 250);
             // 
             // label2
             // 
@@ -497,68 +543,78 @@
             this.CategoryComboBox.Size = new System.Drawing.Size(292, 36);
             this.CategoryComboBox.TabIndex = 8;
             // 
-            // dateRequestTimePicker
+            // label1
             // 
-            this.dateRequestTimePicker.Checked = true;
-            this.dateRequestTimePicker.FillColor = System.Drawing.Color.Brown;
-            this.dateRequestTimePicker.Font = new System.Drawing.Font("Century Gothic", 9F);
-            this.dateRequestTimePicker.ForeColor = System.Drawing.Color.White;
-            this.dateRequestTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.dateRequestTimePicker.Location = new System.Drawing.Point(17, 375);
-            this.dateRequestTimePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.dateRequestTimePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.dateRequestTimePicker.Name = "dateRequestTimePicker";
-            this.dateRequestTimePicker.Size = new System.Drawing.Size(292, 36);
-            this.dateRequestTimePicker.TabIndex = 10;
-            this.dateRequestTimePicker.Value = new System.DateTime(2024, 4, 26, 2, 35, 28, 250);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.Brown;
+            this.label1.Location = new System.Drawing.Point(13, 195);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 20);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Пользователь";
             // 
-            // label3
+            // UserComboBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.Brown;
-            this.label3.Location = new System.Drawing.Point(13, 352);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(140, 20);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Дата обращения";
+            this.UserComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.UserComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.UserComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.UserComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.UserComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.UserComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.UserComboBox.ForeColor = System.Drawing.Color.Brown;
+            this.UserComboBox.ItemHeight = 30;
+            this.UserComboBox.Location = new System.Drawing.Point(17, 218);
+            this.UserComboBox.Name = "UserComboBox";
+            this.UserComboBox.Size = new System.Drawing.Size(292, 36);
+            this.UserComboBox.TabIndex = 6;
             // 
-            // idColumn
+            // ContentTextBox
             // 
-            this.idColumn.HeaderText = "id";
-            this.idColumn.MinimumWidth = 6;
-            this.idColumn.Name = "idColumn";
-            this.idColumn.Visible = false;
+            this.ContentTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ContentTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ContentTextBox.BorderRadius = 10;
+            this.ContentTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ContentTextBox.DefaultText = "";
+            this.ContentTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ContentTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ContentTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ContentTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ContentTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ContentTextBox.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.ContentTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ContentTextBox.Location = new System.Drawing.Point(17, 78);
+            this.ContentTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.ContentTextBox.Multiline = true;
+            this.ContentTextBox.Name = "ContentTextBox";
+            this.ContentTextBox.PasswordChar = '\0';
+            this.ContentTextBox.PlaceholderText = "Текст";
+            this.ContentTextBox.SelectedText = "";
+            this.ContentTextBox.Size = new System.Drawing.Size(292, 93);
+            this.ContentTextBox.TabIndex = 5;
             // 
-            // header
+            // HeaderTextBox
             // 
-            this.header.HeaderText = "Заголовок";
-            this.header.MinimumWidth = 6;
-            this.header.Name = "header";
-            // 
-            // Content
-            // 
-            this.Content.HeaderText = "Текст";
-            this.Content.MinimumWidth = 6;
-            this.Content.Name = "Content";
-            // 
-            // userColumn
-            // 
-            this.userColumn.HeaderText = "Пользователь";
-            this.userColumn.MinimumWidth = 6;
-            this.userColumn.Name = "userColumn";
-            // 
-            // CategoryCol
-            // 
-            this.CategoryCol.HeaderText = "Категория";
-            this.CategoryCol.MinimumWidth = 6;
-            this.CategoryCol.Name = "CategoryCol";
-            // 
-            // dateRequest
-            // 
-            this.dateRequest.HeaderText = "Дата обращения";
-            this.dateRequest.MinimumWidth = 6;
-            this.dateRequest.Name = "dateRequest";
+            this.HeaderTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.HeaderTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.HeaderTextBox.BorderRadius = 10;
+            this.HeaderTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.HeaderTextBox.DefaultText = "";
+            this.HeaderTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.HeaderTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.HeaderTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.HeaderTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.HeaderTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.HeaderTextBox.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.HeaderTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.HeaderTextBox.Location = new System.Drawing.Point(17, 21);
+            this.HeaderTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.HeaderTextBox.Name = "HeaderTextBox";
+            this.HeaderTextBox.PasswordChar = '\0';
+            this.HeaderTextBox.PlaceholderText = "Заголовок";
+            this.HeaderTextBox.SelectedText = "";
+            this.HeaderTextBox.Size = new System.Drawing.Size(292, 35);
+            this.HeaderTextBox.TabIndex = 4;
             // 
             // CategoryTab
             // 
@@ -566,21 +622,86 @@
             this.CategoryTab.Controls.Add(this.guna2Panel3);
             this.CategoryTab.Location = new System.Drawing.Point(4, 44);
             this.CategoryTab.Name = "CategoryTab";
-            this.CategoryTab.Size = new System.Drawing.Size(1075, 451);
+            this.CategoryTab.Size = new System.Drawing.Size(1075, 530);
             this.CategoryTab.TabIndex = 1;
             this.CategoryTab.Text = "Категория";
             this.CategoryTab.UseVisualStyleBackColor = true;
             // 
-            // StatusRequestTab
+            // CategoryDataGrid
             // 
-            this.StatusRequestTab.Controls.Add(this.StatusRequestDataGridView);
-            this.StatusRequestTab.Controls.Add(this.guna2Panel4);
-            this.StatusRequestTab.Location = new System.Drawing.Point(4, 44);
-            this.StatusRequestTab.Name = "StatusRequestTab";
-            this.StatusRequestTab.Size = new System.Drawing.Size(1075, 411);
-            this.StatusRequestTab.TabIndex = 2;
-            this.StatusRequestTab.Text = "Статус обращения";
-            this.StatusRequestTab.UseVisualStyleBackColor = true;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            this.CategoryDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CategoryDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.CategoryDataGrid.ColumnHeadersHeight = 36;
+            this.CategoryDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.CategoryDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn8});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CategoryDataGrid.DefaultCellStyle = dataGridViewCellStyle7;
+            this.CategoryDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CategoryDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.CategoryDataGrid.Location = new System.Drawing.Point(0, 0);
+            this.CategoryDataGrid.Name = "CategoryDataGrid";
+            this.CategoryDataGrid.ReadOnly = true;
+            this.CategoryDataGrid.RowHeadersVisible = false;
+            this.CategoryDataGrid.RowHeadersWidth = 51;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Brown;
+            this.CategoryDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.CategoryDataGrid.RowTemplate.Height = 24;
+            this.CategoryDataGrid.Size = new System.Drawing.Size(752, 530);
+            this.CategoryDataGrid.TabIndex = 5;
+            this.CategoryDataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.CategoryDataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.CategoryDataGrid.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.CategoryDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.CategoryDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.CategoryDataGrid.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.CategoryDataGrid.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.CategoryDataGrid.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.CategoryDataGrid.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.CategoryDataGrid.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CategoryDataGrid.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.CategoryDataGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.CategoryDataGrid.ThemeStyle.HeaderStyle.Height = 36;
+            this.CategoryDataGrid.ThemeStyle.ReadOnly = true;
+            this.CategoryDataGrid.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.CategoryDataGrid.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.CategoryDataGrid.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.CategoryDataGrid.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Transparent;
+            this.CategoryDataGrid.ThemeStyle.RowsStyle.Height = 24;
+            this.CategoryDataGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.CategoryDataGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "id";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Название";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
             // guna2Panel3
             // 
@@ -588,7 +709,7 @@
             this.guna2Panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.guna2Panel3.Location = new System.Drawing.Point(752, 0);
             this.guna2Panel3.Name = "guna2Panel3";
-            this.guna2Panel3.Size = new System.Drawing.Size(323, 451);
+            this.guna2Panel3.Size = new System.Drawing.Size(323, 530);
             this.guna2Panel3.TabIndex = 1;
             // 
             // NameCategoryTextBox
@@ -614,78 +735,92 @@
             this.NameCategoryTextBox.Size = new System.Drawing.Size(292, 35);
             this.NameCategoryTextBox.TabIndex = 4;
             // 
-            // CategoryDataGrid
+            // StatusRequestTab
             // 
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.White;
-            this.CategoryDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CategoryDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
-            this.CategoryDataGrid.ColumnHeadersHeight = 36;
-            this.CategoryDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.CategoryDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn8});
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CategoryDataGrid.DefaultCellStyle = dataGridViewCellStyle43;
-            this.CategoryDataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CategoryDataGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.CategoryDataGrid.Location = new System.Drawing.Point(0, 0);
-            this.CategoryDataGrid.Name = "CategoryDataGrid";
-            this.CategoryDataGrid.RowHeadersVisible = false;
-            this.CategoryDataGrid.RowHeadersWidth = 51;
-            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.Brown;
-            this.CategoryDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle44;
-            this.CategoryDataGrid.RowTemplate.Height = 24;
-            this.CategoryDataGrid.Size = new System.Drawing.Size(752, 451);
-            this.CategoryDataGrid.TabIndex = 5;
-            this.CategoryDataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.CategoryDataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.CategoryDataGrid.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.CategoryDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.CategoryDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.CategoryDataGrid.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.CategoryDataGrid.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.CategoryDataGrid.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.CategoryDataGrid.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.CategoryDataGrid.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CategoryDataGrid.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.CategoryDataGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.CategoryDataGrid.ThemeStyle.HeaderStyle.Height = 36;
-            this.CategoryDataGrid.ThemeStyle.ReadOnly = false;
-            this.CategoryDataGrid.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.CategoryDataGrid.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.CategoryDataGrid.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.CategoryDataGrid.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Transparent;
-            this.CategoryDataGrid.ThemeStyle.RowsStyle.Height = 24;
-            this.CategoryDataGrid.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.CategoryDataGrid.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.StatusRequestTab.Controls.Add(this.StatusRequestDataGridView);
+            this.StatusRequestTab.Controls.Add(this.guna2Panel4);
+            this.StatusRequestTab.Location = new System.Drawing.Point(4, 44);
+            this.StatusRequestTab.Name = "StatusRequestTab";
+            this.StatusRequestTab.Size = new System.Drawing.Size(1075, 530);
+            this.StatusRequestTab.TabIndex = 2;
+            this.StatusRequestTab.Text = "Статус обращения";
+            this.StatusRequestTab.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn5
+            // StatusRequestDataGridView
             // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "id";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Visible = false;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            this.StatusRequestDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Brown;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.StatusRequestDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.StatusRequestDataGridView.ColumnHeadersHeight = 36;
+            this.StatusRequestDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.StatusRequestDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.StatusRequestDataGridView.DefaultCellStyle = dataGridViewCellStyle11;
+            this.StatusRequestDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.StatusRequestDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.StatusRequestDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.StatusRequestDataGridView.Name = "StatusRequestDataGridView";
+            this.StatusRequestDataGridView.ReadOnly = true;
+            this.StatusRequestDataGridView.RowHeadersVisible = false;
+            this.StatusRequestDataGridView.RowHeadersWidth = 51;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Brown;
+            this.StatusRequestDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.StatusRequestDataGridView.RowTemplate.Height = 24;
+            this.StatusRequestDataGridView.Size = new System.Drawing.Size(752, 530);
+            this.StatusRequestDataGridView.TabIndex = 6;
+            this.StatusRequestDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.StatusRequestDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.StatusRequestDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.StatusRequestDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.StatusRequestDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.StatusRequestDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White;
+            this.StatusRequestDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.StatusRequestDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.StatusRequestDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.StatusRequestDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StatusRequestDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.StatusRequestDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.StatusRequestDataGridView.ThemeStyle.HeaderStyle.Height = 36;
+            this.StatusRequestDataGridView.ThemeStyle.ReadOnly = true;
+            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Transparent;
+            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.Height = 24;
+            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             // 
-            // dataGridViewTextBoxColumn8
+            // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Название";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn1.HeaderText = "id";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Название";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
             // 
             // guna2Panel4
             // 
@@ -693,7 +828,7 @@
             this.guna2Panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.guna2Panel4.Location = new System.Drawing.Point(752, 0);
             this.guna2Panel4.Name = "guna2Panel4";
-            this.guna2Panel4.Size = new System.Drawing.Size(323, 411);
+            this.guna2Panel4.Size = new System.Drawing.Size(323, 530);
             this.guna2Panel4.TabIndex = 2;
             // 
             // StatusRequestTextBox
@@ -719,131 +854,11 @@
             this.StatusRequestTextBox.Size = new System.Drawing.Size(292, 35);
             this.StatusRequestTextBox.TabIndex = 4;
             // 
-            // StatusRequestDataGridView
+            // guna2DragControl1
             // 
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.White;
-            this.StatusRequestDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Century Gothic", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.Brown;
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.StatusRequestDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
-            this.StatusRequestDataGridView.ColumnHeadersHeight = 36;
-            this.StatusRequestDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.StatusRequestDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle47.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.StatusRequestDataGridView.DefaultCellStyle = dataGridViewCellStyle47;
-            this.StatusRequestDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StatusRequestDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.StatusRequestDataGridView.Location = new System.Drawing.Point(0, 0);
-            this.StatusRequestDataGridView.Name = "StatusRequestDataGridView";
-            this.StatusRequestDataGridView.RowHeadersVisible = false;
-            this.StatusRequestDataGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.Brown;
-            this.StatusRequestDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle48;
-            this.StatusRequestDataGridView.RowTemplate.Height = 24;
-            this.StatusRequestDataGridView.Size = new System.Drawing.Size(752, 411);
-            this.StatusRequestDataGridView.TabIndex = 6;
-            this.StatusRequestDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.StatusRequestDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.StatusRequestDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.StatusRequestDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.StatusRequestDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.StatusRequestDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White;
-            this.StatusRequestDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.StatusRequestDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.StatusRequestDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.StatusRequestDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StatusRequestDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.StatusRequestDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.StatusRequestDataGridView.ThemeStyle.HeaderStyle.Height = 36;
-            this.StatusRequestDataGridView.ThemeStyle.ReadOnly = false;
-            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Transparent;
-            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.Height = 24;
-            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.StatusRequestDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "id";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Название";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // EmployeeButton
-            // 
-            this.EmployeeButton.BorderThickness = 1;
-            this.EmployeeButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.EmployeeButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.EmployeeButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.EmployeeButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.EmployeeButton.Dock = System.Windows.Forms.DockStyle.Left;
-            this.EmployeeButton.FillColor = System.Drawing.Color.Brown;
-            this.EmployeeButton.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.EmployeeButton.ForeColor = System.Drawing.Color.White;
-            this.EmployeeButton.Location = new System.Drawing.Point(314, 0);
-            this.EmployeeButton.Name = "EmployeeButton";
-            this.EmployeeButton.Size = new System.Drawing.Size(151, 73);
-            this.EmployeeButton.TabIndex = 5;
-            this.EmployeeButton.Text = "Сотрудники";
-            this.EmployeeButton.Click += new System.EventHandler(this.EmployeeButton_Click);
-            // 
-            // EditButton
-            // 
-            this.EditButton.BorderThickness = 1;
-            this.EditButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.EditButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.EditButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.EditButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.EditButton.Dock = System.Windows.Forms.DockStyle.Right;
-            this.EditButton.FillColor = System.Drawing.Color.Brown;
-            this.EditButton.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.EditButton.ForeColor = System.Drawing.Color.White;
-            this.EditButton.Location = new System.Drawing.Point(641, 0);
-            this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(158, 73);
-            this.EditButton.TabIndex = 8;
-            this.EditButton.Text = "Редактировать";
-            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
-            // 
-            // ReportButton
-            // 
-            this.ReportButton.BorderRadius = 5;
-            this.ReportButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ReportButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ReportButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ReportButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ReportButton.FillColor = System.Drawing.Color.Brown;
-            this.ReportButton.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.ReportButton.ForeColor = System.Drawing.Color.White;
-            this.ReportButton.Location = new System.Drawing.Point(7, 4);
-            this.ReportButton.Name = "ReportButton";
-            this.ReportButton.Size = new System.Drawing.Size(148, 32);
-            this.ReportButton.TabIndex = 14;
-            this.ReportButton.Text = "Отчет";
-            this.ReportButton.Click += new System.EventHandler(this.ReportButton_Click);
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this.HeadPanel;
+            this.guna2DragControl1.UseTransparentDrag = true;
             // 
             // Requests
             // 
@@ -865,15 +880,15 @@
             this.ContentPanel.ResumeLayout(false);
             this.guna2TabControl1.ResumeLayout(false);
             this.RequestsTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.RequestsDataGrid)).EndInit();
             this.guna2Panel2.ResumeLayout(false);
             this.guna2Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RequestsDataGrid)).EndInit();
             this.CategoryTab.ResumeLayout(false);
-            this.StatusRequestTab.ResumeLayout(false);
-            this.guna2Panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CategoryDataGrid)).EndInit();
-            this.guna2Panel4.ResumeLayout(false);
+            this.guna2Panel3.ResumeLayout(false);
+            this.StatusRequestTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.StatusRequestDataGridView)).EndInit();
+            this.guna2Panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
