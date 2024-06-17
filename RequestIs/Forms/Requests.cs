@@ -84,6 +84,39 @@ namespace RequestIs.Forms
             }
             db.closeConnection();
         }
+        private void loadInfoHistoryRequests()
+        {
+            DB db = new DB();
+
+            HistoryRequestDataGridView.Rows.Clear();
+
+            string query = $"select history.id, requests.header, statusrequest.name, history.dateEdit, concat(employee.surname, ' ', employee.name, ' ', employee.patronymic) from history " +
+                $"inner join requests on history.idRequest = requests.id " +
+                $"inner join statusrequest on history.idStatusRequest = statusrequest.id " +
+                $"inner join employee on history.idEmployee = employee.id ";
+
+            db.openConnection();
+            using (MySqlCommand mySqlCommand = new MySqlCommand(query, db.getConnection()))
+            {
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                List<string[]> dataDB = new List<string[]>();
+                while (reader.Read())
+                {
+
+                    dataDB.Add(new string[reader.FieldCount]);
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        dataDB[dataDB.Count - 1][i] = reader[i].ToString();
+                    }
+                }
+                reader.Close();
+                foreach (string[] s in dataDB)
+                    HistoryRequestDataGridView.Rows.Add(s);
+            }
+            db.closeConnection();
+        }
 
         private void loadInfoUsers()
         {
@@ -129,7 +162,72 @@ namespace RequestIs.Forms
 
             db.closeConnection();
         }
+        private void loadInfoRequestsComboBox()
+        {
+            RequestComboBox.Items.Clear();
 
+            DB db = new DB();
+            string queryInfo = $"SELECT id, header FROM requests";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = $" {reader[1]}";
+                item.Value = reader[0];
+                RequestComboBox.Items.Add(item);
+            }
+            reader.Close();
+
+            db.closeConnection();
+        }
+        private void loadInfoStateComboBox()
+        {
+            StateRequestComboBox.Items.Clear();
+
+            DB db = new DB();
+            string queryInfo = $"SELECT id, name FROM statusrequest";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = $" {reader[1]}";
+                item.Value = reader[0];
+                StateRequestComboBox.Items.Add(item);
+            }
+            reader.Close();
+
+            db.closeConnection();
+        }
+        private void loadInfoEmployeeComboBox()
+        {
+            EmployeeComboBox.Items.Clear();
+
+            DB db = new DB();
+            string queryInfo = $"SELECT id, name FROM employee";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = $" {reader[1]}";
+                item.Value = reader[0];
+                EmployeeComboBox.Items.Add(item);
+            }
+            reader.Close();
+
+            db.closeConnection();
+        }
         private void loadInfoRequests()
         {
             DB db = new DB();
@@ -169,6 +267,7 @@ namespace RequestIs.Forms
             loadInfoRequests();
             loadInfoUsers();
             loadInfoCategoryComboBox();
+            loadInfoHistoryRequests();
             selectedTab = 0;
         }
 
@@ -242,6 +341,29 @@ namespace RequestIs.Forms
 
             db.closeConnection();
         }
+        private void addHisotryInDB()
+        {
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand($"INSERT into history (idRequest, idStatusRequest, dateEdit, idEmployee) values(@idRequest, @idStatusRequest, @dateEdit, @idEmployee)", db.getConnection());
+            command.Parameters.AddWithValue("@idRequest", (RequestComboBox.SelectedItem as ComboBoxItem).Value);
+            command.Parameters.AddWithValue("@idStatusRequest", (StateRequestComboBox.SelectedItem as ComboBoxItem).Value);
+            command.Parameters.AddWithValue("@dateEdit", DateEditDateTimePicker.Value.ToString("yyyy.MM.dd"));
+            command.Parameters.AddWithValue("@idEmployee", (EmployeeComboBox.SelectedItem as ComboBoxItem).Value);
+            db.openConnection();
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("История добавлена");
+                loadInfoHistoryRequests();
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            db.closeConnection();
+        }
         private void updateCategoryInDB(string idCategory)
         {
             DB db = new DB();
@@ -306,6 +428,31 @@ namespace RequestIs.Forms
 
             db.closeConnection();
         }
+        private void updateHistoryInDB(string idStatusRequest)
+        {
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand($"update history set idRequest=@idRequest, idStatusRequest=@idStatusRequest, dateEdit=@dateEdit, idEmployee=@idEmployee where id = {idStatusRequest}", db.getConnection());
+            command.Parameters.AddWithValue("@idRequest", (RequestComboBox.SelectedItem as ComboBoxItem).Value);
+            command.Parameters.AddWithValue("@idStatusRequest", (StateRequestComboBox.SelectedItem as ComboBoxItem).Value);
+            command.Parameters.AddWithValue("@dateEdit", DateEditDateTimePicker.Value.ToString("yyyy.MM.dd"));
+            command.Parameters.AddWithValue("@idEmployee", (EmployeeComboBox.SelectedItem as ComboBoxItem).Value);
+
+            db.openConnection();
+
+            try
+            {
+                command.ExecuteNonQuery();
+                MessageBox.Show("История изменена");
+                loadInfoHistoryRequests();
+
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            db.closeConnection();
+        }
         private void AddButton_Click(object sender, EventArgs e)
         {
             if (selectedTab == 0)
@@ -345,6 +492,20 @@ namespace RequestIs.Forms
                             updateStatusRequestInDB(selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
                         }
                     }
+                    else
+                    {
+                        if (selectedTab == 3)
+                        {
+                            if (!isEdit)
+                            {
+                                addHisotryInDB();
+                            }
+                            else
+                            {
+                                updateHistoryInDB(selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                            }
+                        }
+                    }
                 }
             }
 
@@ -369,6 +530,16 @@ namespace RequestIs.Forms
                     if (selectedTab == 2)
                     {
                         StatusRequestTextBox.Text = "";
+                    }
+                    else
+                    {
+                        if (selectedTab == 2)
+                        {
+                            DateEditDateTimePicker.Value = DateTime.Now;
+                            RequestComboBox.SelectedIndex = -1;
+                            StateRequestComboBox.SelectedIndex = -1;
+                            EmployeeComboBox.SelectedIndex = -1;
+                        }
                     }
                 }
             }
@@ -417,6 +588,17 @@ namespace RequestIs.Forms
                     {
                         selectedDataGrid = StatusRequestDataGridView;
                         loadInfoStatusRequest();
+                    }
+                    else
+                    {
+                        if (guna2TabControl1.SelectedIndex == 3)
+                        {
+                            selectedDataGrid = HistoryRequestDataGridView;
+                            loadInfoHistoryRequests();
+                            loadInfoEmployeeComboBox();
+                            loadInfoRequestsComboBox();
+                            loadInfoStateComboBox();
+                        }
                     }
                 }
             }
@@ -500,6 +682,54 @@ namespace RequestIs.Forms
 
             db.closeConnection();
         }
+        private void loadInfoOneHistory(string idStatus)
+        {
+            DB db = new DB();
+            string queryInfo = $"select * from history " +
+                $"where history.id = {idStatus}";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                for (int i = 0; i < RequestComboBox.Items.Count; i++)
+                {
+                    if (reader["idRequest"].ToString() != "")
+                    {
+                        if (Convert.ToInt32((RequestComboBox.Items[i] as ComboBoxItem).Value) == Convert.ToInt32(reader["idRequest"]))
+                        {
+                            RequestComboBox.SelectedIndex = i;
+                        }
+                    }
+                }
+                for (int i = 0; i < StateRequestComboBox.Items.Count; i++)
+                {
+                    if (reader["idStatusRequest"].ToString() != "")
+                    {
+                        if (Convert.ToInt32((StateRequestComboBox.Items[i] as ComboBoxItem).Value) == Convert.ToInt32(reader["idStatusRequest"]))
+                        {
+                            StateRequestComboBox.SelectedIndex = i;
+                        }
+                    }
+                }
+                for (int i = 0; i < EmployeeComboBox.Items.Count; i++)
+                {
+                    if (reader["idEmployee"].ToString() != "")
+                    {
+                        if (Convert.ToInt32((EmployeeComboBox.Items[i] as ComboBoxItem).Value) == Convert.ToInt32(reader["idEmployee"]))
+                        {
+                            EmployeeComboBox.SelectedIndex = i;
+                        }
+                    }
+                }
+                DateEditDateTimePicker.Value = Convert.ToDateTime(reader["dateEdit"].ToString());
+            }
+            reader.Close();
+
+            db.closeConnection();
+        }
         private void EditButton_Click(object sender, EventArgs e)
         {
             isEdit = true;
@@ -519,6 +749,13 @@ namespace RequestIs.Forms
                     if (selectedTab == 2)
                     {
                         loadInfoOneStatus(selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                    }
+                    else
+                    {
+                        if (selectedTab == 3)
+                        {
+                            loadInfoOneHistory(selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                        }
                     }
                 }
             }
@@ -564,6 +801,14 @@ namespace RequestIs.Forms
                         deleteRecordInBd("statusrequest", selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
                         loadInfoStatusRequest();
                     }
+                    else
+                    {
+                        if (selectedTab == 3)
+                        {
+                            deleteRecordInBd("history", selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString());
+                            loadInfoHistoryRequests();
+                        }
+                    }
                 }
             }
         }
@@ -573,33 +818,58 @@ namespace RequestIs.Forms
             Excel.Application excelApp = new Excel.Application();
             Excel.Workbook workbook = excelApp.Workbooks.Add();
             Excel.Worksheet worksheet = workbook.ActiveSheet;
+
+            int columnIndex = 1; 
             for (int j = 0; j < RequestsDataGrid.Columns.Count; j++)
             {
                 if (RequestsDataGrid.Columns[j].Visible)
                 {
-                    worksheet.Cells[1, j] = RequestsDataGrid.Columns[j].HeaderText;
+                    worksheet.Cells[1, columnIndex] = RequestsDataGrid.Columns[j].HeaderText;
+                    columnIndex++;
                 }
             }
+
             for (int i = 0; i < RequestsDataGrid.Rows.Count; i++)
             {
+                columnIndex = 1;
                 for (int j = 0; j < RequestsDataGrid.Columns.Count; j++)
                 {
                     if (RequestsDataGrid.Columns[j].Visible)
                     {
-                        worksheet.Cells[i + 2, j] = RequestsDataGrid.Rows[i].Cells[j].Value;
+                        worksheet.Cells[i + 2, columnIndex] = RequestsDataGrid.Rows[i].Cells[j].Value;
+                        columnIndex++;
                     }
                 }
             }
+
+            worksheet.Columns.AutoFit();
+
+            Excel.Range usedRange = worksheet.UsedRange;
+            usedRange.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "Excel File|*.xlsx";
             saveFileDialog1.Title = "Сохранить Excel файл";
+            saveFileDialog1.FileName = "Отчет о заявках";
             saveFileDialog1.ShowDialog();
+
             if (saveFileDialog1.FileName != "")
             {
                 workbook.SaveAs(saveFileDialog1.FileName);
+
+                workbook.Close(false);
+                excelApp.Quit();
+
+                System.Diagnostics.Process.Start(saveFileDialog1.FileName);
             }
-            workbook.Close();
-            excelApp.Quit();
+
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+            worksheet = null;
+            workbook = null;
+            excelApp = null;
+            GC.Collect();
         }
 
         private void EmployeeButton_Click(object sender, EventArgs e)

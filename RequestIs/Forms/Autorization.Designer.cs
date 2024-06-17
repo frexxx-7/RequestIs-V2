@@ -50,7 +50,7 @@
             this.LoginTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.LoginTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.LoginTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.LoginTextBox.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.LoginTextBox.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LoginTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.LoginTextBox.Location = new System.Drawing.Point(80, 138);
             this.LoginTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -75,11 +75,11 @@
             this.AutorizationButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.AutorizationButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.AutorizationButton.FillColor = System.Drawing.Color.Brown;
-            this.AutorizationButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.AutorizationButton.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AutorizationButton.ForeColor = System.Drawing.Color.White;
-            this.AutorizationButton.Location = new System.Drawing.Point(175, 384);
+            this.AutorizationButton.Location = new System.Drawing.Point(177, 386);
             this.AutorizationButton.Name = "AutorizationButton";
-            this.AutorizationButton.Size = new System.Drawing.Size(148, 41);
+            this.AutorizationButton.Size = new System.Drawing.Size(148, 45);
             this.AutorizationButton.TabIndex = 3;
             this.AutorizationButton.Text = "Войти";
             this.AutorizationButton.Click += new System.EventHandler(this.AutorizationButton_Click);
@@ -96,7 +96,7 @@
             this.PasswordTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.PasswordTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.PasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PasswordTextBox.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.PasswordTextBox.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PasswordTextBox.Location = new System.Drawing.Point(80, 243);
             this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -123,11 +123,11 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.Brown;
-            this.label1.Location = new System.Drawing.Point(186, 48);
+            this.label1.Location = new System.Drawing.Point(172, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 23);
+            this.label1.Size = new System.Drawing.Size(159, 27);
             this.label1.TabIndex = 9;
             this.label1.Text = "Авторизация";
             // 
@@ -140,11 +140,11 @@
             this.RegisterButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.RegisterButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.RegisterButton.FillColor = System.Drawing.Color.Brown;
-            this.RegisterButton.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.RegisterButton.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RegisterButton.ForeColor = System.Drawing.Color.White;
-            this.RegisterButton.Location = new System.Drawing.Point(171, 448);
+            this.RegisterButton.Location = new System.Drawing.Point(152, 452);
             this.RegisterButton.Name = "RegisterButton";
-            this.RegisterButton.Size = new System.Drawing.Size(159, 41);
+            this.RegisterButton.Size = new System.Drawing.Size(204, 48);
             this.RegisterButton.TabIndex = 4;
             this.RegisterButton.Text = "Регистрация";
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);

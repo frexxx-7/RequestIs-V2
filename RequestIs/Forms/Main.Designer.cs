@@ -58,9 +58,9 @@
             this.guna2Panel1.Controls.Add(this.UsersButton);
             this.guna2Panel1.Controls.Add(this.Request);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 480);
+            this.guna2Panel1.Location = new System.Drawing.Point(0, 525);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1046, 73);
+            this.guna2Panel1.Size = new System.Drawing.Size(1363, 73);
             this.guna2Panel1.TabIndex = 0;
             // 
             // EmployeeButton
@@ -72,11 +72,11 @@
             this.EmployeeButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.EmployeeButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.EmployeeButton.FillColor = System.Drawing.Color.Brown;
-            this.EmployeeButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EmployeeButton.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.EmployeeButton.ForeColor = System.Drawing.Color.White;
-            this.EmployeeButton.Location = new System.Drawing.Point(277, 0);
+            this.EmployeeButton.Location = new System.Drawing.Point(342, 0);
             this.EmployeeButton.Name = "EmployeeButton";
-            this.EmployeeButton.Size = new System.Drawing.Size(151, 73);
+            this.EmployeeButton.Size = new System.Drawing.Size(233, 73);
             this.EmployeeButton.TabIndex = 6;
             this.EmployeeButton.Text = "Сотрудники";
             this.EmployeeButton.Click += new System.EventHandler(this.EmployeeButton_Click);
@@ -90,11 +90,11 @@
             this.DeleteButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.DeleteButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.DeleteButton.FillColor = System.Drawing.Color.Brown;
-            this.DeleteButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DeleteButton.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DeleteButton.ForeColor = System.Drawing.Color.White;
-            this.DeleteButton.Location = new System.Drawing.Point(762, 0);
+            this.DeleteButton.Location = new System.Drawing.Point(1019, 0);
             this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(142, 73);
+            this.DeleteButton.Size = new System.Drawing.Size(169, 73);
             this.DeleteButton.TabIndex = 4;
             this.DeleteButton.Text = "Удалить";
             // 
@@ -107,11 +107,11 @@
             this.AddButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.AddButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.AddButton.FillColor = System.Drawing.Color.Brown;
-            this.AddButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddButton.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddButton.ForeColor = System.Drawing.Color.White;
-            this.AddButton.Location = new System.Drawing.Point(904, 0);
+            this.AddButton.Location = new System.Drawing.Point(1188, 0);
             this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(142, 73);
+            this.AddButton.Size = new System.Drawing.Size(175, 73);
             this.AddButton.TabIndex = 3;
             this.AddButton.Text = "Добавить";
             // 
@@ -125,11 +125,11 @@
             this.MainButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.MainButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.MainButton.FillColor = System.Drawing.Color.Brown;
-            this.MainButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.MainButton.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MainButton.ForeColor = System.Drawing.Color.White;
-            this.MainButton.Location = new System.Drawing.Point(428, 0);
+            this.MainButton.Location = new System.Drawing.Point(575, 0);
             this.MainButton.Name = "MainButton";
-            this.MainButton.Size = new System.Drawing.Size(334, 73);
+            this.MainButton.Size = new System.Drawing.Size(448, 73);
             this.MainButton.TabIndex = 2;
             this.MainButton.Text = "Главная";
             this.MainButton.Click += new System.EventHandler(this.MainButton_Click);
@@ -143,11 +143,11 @@
             this.UsersButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.UsersButton.Dock = System.Windows.Forms.DockStyle.Left;
             this.UsersButton.FillColor = System.Drawing.Color.Brown;
-            this.UsersButton.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UsersButton.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UsersButton.ForeColor = System.Drawing.Color.White;
             this.UsersButton.Location = new System.Drawing.Point(126, 0);
             this.UsersButton.Name = "UsersButton";
-            this.UsersButton.Size = new System.Drawing.Size(151, 73);
+            this.UsersButton.Size = new System.Drawing.Size(216, 73);
             this.UsersButton.TabIndex = 1;
             this.UsersButton.Text = "Пользователи";
             this.UsersButton.Click += new System.EventHandler(this.UsersButton_Click);
@@ -161,7 +161,7 @@
             this.Request.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Request.Dock = System.Windows.Forms.DockStyle.Left;
             this.Request.FillColor = System.Drawing.Color.Brown;
-            this.Request.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Request.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Request.ForeColor = System.Drawing.Color.White;
             this.Request.Location = new System.Drawing.Point(0, 0);
             this.Request.Name = "Request";
@@ -182,7 +182,7 @@
             this.HeadPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.HeadPanel.Location = new System.Drawing.Point(0, 0);
             this.HeadPanel.Name = "HeadPanel";
-            this.HeadPanel.Size = new System.Drawing.Size(1046, 42);
+            this.HeadPanel.Size = new System.Drawing.Size(1363, 42);
             this.HeadPanel.TabIndex = 1;
             // 
             // guna2ControlBox1
@@ -191,7 +191,7 @@
             this.guna2ControlBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox1.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox1.IconColor = System.Drawing.Color.Brown;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(989, 7);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(1306, 7);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 10;
@@ -204,7 +204,7 @@
             this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.guna2ControlBox3.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox3.IconColor = System.Drawing.Color.Brown;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(887, 7);
+            this.guna2ControlBox3.Location = new System.Drawing.Point(1204, 7);
             this.guna2ControlBox3.Name = "guna2ControlBox3";
             this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox3.TabIndex = 12;
@@ -216,7 +216,7 @@
             this.guna2ControlBox2.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
             this.guna2ControlBox2.FillColor = System.Drawing.Color.Transparent;
             this.guna2ControlBox2.IconColor = System.Drawing.Color.Brown;
-            this.guna2ControlBox2.Location = new System.Drawing.Point(938, 7);
+            this.guna2ControlBox2.Location = new System.Drawing.Point(1255, 7);
             this.guna2ControlBox2.Name = "guna2ControlBox2";
             this.guna2ControlBox2.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox2.TabIndex = 11;
@@ -235,7 +235,7 @@
             this.ContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ContentPanel.Location = new System.Drawing.Point(0, 42);
             this.ContentPanel.Name = "ContentPanel";
-            this.ContentPanel.Size = new System.Drawing.Size(1046, 438);
+            this.ContentPanel.Size = new System.Drawing.Size(1363, 483);
             this.ContentPanel.TabIndex = 2;
             // 
             // label1
@@ -244,7 +244,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.Brown;
-            this.label1.Location = new System.Drawing.Point(502, 161);
+            this.label1.Location = new System.Drawing.Point(819, 183);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(481, 136);
             this.label1.TabIndex = 0;
@@ -256,7 +256,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1046, 553);
+            this.ClientSize = new System.Drawing.Size(1363, 598);
             this.Controls.Add(this.ContentPanel);
             this.Controls.Add(this.HeadPanel);
             this.Controls.Add(this.guna2Panel1);

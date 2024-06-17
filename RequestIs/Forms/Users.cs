@@ -780,33 +780,58 @@ namespace RequestIs.Forms
             Excel.Application excelApp = new Excel.Application();
             Excel.Workbook workbook = excelApp.Workbooks.Add();
             Excel.Worksheet worksheet = workbook.ActiveSheet;
+
+            int columnIndex = 1; 
             for (int j = 0; j < UsersDataGrid.Columns.Count; j++)
             {
                 if (UsersDataGrid.Columns[j].Visible)
                 {
-                    worksheet.Cells[1, j] = UsersDataGrid.Columns[j].HeaderText;
+                    worksheet.Cells[1, columnIndex] = UsersDataGrid.Columns[j].HeaderText;
+                    columnIndex++;
                 }
             }
+
             for (int i = 0; i < UsersDataGrid.Rows.Count; i++)
             {
+                columnIndex = 1; 
                 for (int j = 0; j < UsersDataGrid.Columns.Count; j++)
                 {
                     if (UsersDataGrid.Columns[j].Visible)
                     {
-                        worksheet.Cells[i + 2, j] = UsersDataGrid.Rows[i].Cells[j].Value;
+                        worksheet.Cells[i + 2, columnIndex] = UsersDataGrid.Rows[i].Cells[j].Value;
+                        columnIndex++;
                     }
                 }
             }
+
+            worksheet.Columns.AutoFit();
+
+            Excel.Range usedRange = worksheet.UsedRange;
+            usedRange.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
+
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "Excel File|*.xlsx";
             saveFileDialog1.Title = "Сохранить Excel файл";
+            saveFileDialog1.FileName = "Отчет о пользователях";
             saveFileDialog1.ShowDialog();
+
             if (saveFileDialog1.FileName != "")
             {
                 workbook.SaveAs(saveFileDialog1.FileName);
+
+                workbook.Close(false);
+                excelApp.Quit();
+
+                System.Diagnostics.Process.Start(saveFileDialog1.FileName);
             }
-            workbook.Close();
-            excelApp.Quit();
+
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(worksheet);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+            worksheet = null;
+            workbook = null;
+            excelApp = null;
+            GC.Collect();
         }
 
         private void EmployeeButton_Click(object sender, EventArgs e)
