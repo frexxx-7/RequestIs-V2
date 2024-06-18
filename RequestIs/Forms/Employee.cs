@@ -372,24 +372,45 @@ namespace RequestIs.Forms
             Excel.Workbook workbook = excelApp.Workbooks.Add();
             Excel.Worksheet worksheet = workbook.ActiveSheet;
 
-            int columnIndex = 1; 
+            string fileName = "Отчет о сотрудниках"; 
+            int visibleColumnCount = 0;
+
+            // Calculate the number of visible columns
             for (int j = 0; j < EmployeeDataGrid.Columns.Count; j++)
             {
                 if (EmployeeDataGrid.Columns[j].Visible)
                 {
-                    worksheet.Cells[1, columnIndex] = EmployeeDataGrid.Columns[j].HeaderText;
+                    visibleColumnCount++;
+                }
+            }
+
+            Excel.Range titleRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, visibleColumnCount]];
+            titleRange.Merge();
+            titleRange.Value = fileName;
+            titleRange.Font.Bold = true;
+            titleRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+
+            int headerRow = 2;
+            int dataStartRow = 3;
+
+            int columnIndex = 1;
+            for (int j = 0; j < EmployeeDataGrid.Columns.Count; j++)
+            {
+                if (EmployeeDataGrid.Columns[j].Visible)
+                {
+                    worksheet.Cells[headerRow, columnIndex] = EmployeeDataGrid.Columns[j].HeaderText;
                     columnIndex++;
                 }
             }
 
             for (int i = 0; i < EmployeeDataGrid.Rows.Count; i++)
             {
-                columnIndex = 1; 
+                columnIndex = 1;
                 for (int j = 0; j < EmployeeDataGrid.Columns.Count; j++)
                 {
                     if (EmployeeDataGrid.Columns[j].Visible)
                     {
-                        worksheet.Cells[i + 2, columnIndex] = EmployeeDataGrid.Rows[i].Cells[j].Value;
+                        worksheet.Cells[i + dataStartRow, columnIndex] = EmployeeDataGrid.Rows[i].Cells[j].Value;
                         columnIndex++;
                     }
                 }
@@ -397,14 +418,13 @@ namespace RequestIs.Forms
 
             worksheet.Columns.AutoFit();
 
-            // Добавление границ для всех ячеек
             Excel.Range usedRange = worksheet.UsedRange;
             usedRange.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
 
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "Excel File|*.xlsx";
             saveFileDialog1.Title = "Сохранить Excel файл";
-            saveFileDialog1.FileName = "Отчет о сотрудниках";
+            saveFileDialog1.FileName = fileName;
             saveFileDialog1.ShowDialog();
 
             if (saveFileDialog1.FileName != "")
@@ -424,6 +444,66 @@ namespace RequestIs.Forms
             workbook = null;
             excelApp = null;
             GC.Collect();
+        }
+
+        private void SeacrhTextBox_TextChanged(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            selectedDataGrid.Rows.Clear();
+            string searchString = $"select employee.id, employee.surname, employee.name, employee.patronymic, employee.numberPhone from employee " +
+                $"where concat (employee.surname, employee.name, employee.patronymic, employee.numberPhone) like '%" + SeacrhTextBox.Text + "%'";
+
+            db.openConnection();
+            using (MySqlCommand mySqlCommand = new MySqlCommand(searchString, db.getConnection()))
+            {
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                List<string[]> dataDB = new List<string[]>();
+                while (reader.Read())
+                {
+                    dataDB.Add(new string[reader.FieldCount]);
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        dataDB[dataDB.Count - 1][i] = reader[i].ToString();
+                    }
+                }
+                reader.Close();
+                foreach (string[] s in dataDB)
+                    selectedDataGrid.Rows.Add(s);
+            }
+            db.closeConnection();
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            selectedDataGrid.Rows.Clear();
+            string searchString = $"select * from positions " +
+                $"where concat (positions.name) like '%" + guna2TextBox1.Text + "%'";
+
+            db.openConnection();
+            using (MySqlCommand mySqlCommand = new MySqlCommand(searchString, db.getConnection()))
+            {
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                List<string[]> dataDB = new List<string[]>();
+                while (reader.Read())
+                {
+                    dataDB.Add(new string[reader.FieldCount]);
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        dataDB[dataDB.Count - 1][i] = reader[i].ToString();
+                    }
+                }
+                reader.Close();
+                foreach (string[] s in dataDB)
+                    selectedDataGrid.Rows.Add(s);
+            }
+            db.closeConnection();
         }
     }
 }

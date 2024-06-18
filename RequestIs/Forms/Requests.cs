@@ -1,4 +1,5 @@
 ﻿using Guna.UI2.WinForms;
+using Microsoft.Office.Interop.Excel;
 using MySql.Data.MySqlClient;
 using RequestIs.Classes;
 using System;
@@ -6,11 +7,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Word;
 
 namespace RequestIs.Forms
 {
@@ -270,27 +274,51 @@ namespace RequestIs.Forms
             loadInfoHistoryRequests();
             selectedTab = 0;
         }
-
         private void addRequestInDB()
         {
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand($"INSERT into requests (header, content, idUser, idCategory, dateRequest) values(@header, @content, @idUser, @idCategory, @dateRequest)", db.getConnection());
+            MySqlCommand command = new MySqlCommand($"INSERT into requests (header, content, idUser, idCategory, dateRequest) values(@header, @content, @idUser, @idCategory, @dateRequest); SELECT LAST_INSERT_ID();", db.getConnection());
             command.Parameters.AddWithValue("@header", HeaderTextBox.Text);
             command.Parameters.AddWithValue("@content", ContentTextBox.Text);
             command.Parameters.AddWithValue("@idUser", (UserComboBox.SelectedItem as ComboBoxItem).Value);
             command.Parameters.AddWithValue("@idCategory", (CategoryComboBox.SelectedItem as ComboBoxItem).Value);
-            command.Parameters.AddWithValue("@dateRequest", dateRequestTimePicker.Value.ToString("yyyy.MM.dd"));
+            command.Parameters.AddWithValue("@dateRequest", dateRequestTimePicker.Value.ToString("dd.MM.yyyy"));
+            db.openConnection();
+
+            try
+            {
+                int newRequestId = Convert.ToInt32(command.ExecuteScalar());
+                MessageBox.Show("Заявка добавлена");
+                loadInfoRequests();
+                addHisotryInDBForRequest(newRequestId);
+            }
+            catch(Exception exp)
+            {
+                MessageBox.Show(exp.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            db.closeConnection();
+        }
+
+        private void addHisotryInDBForRequest(int requestId)
+        {
+            DB db = new DB();
+            MySqlCommand command = new MySqlCommand($"INSERT into history (idRequest, idStatusRequest, dateEdit, idEmployee) values(@idRequest, @idStatusRequest, @dateEdit, @idEmployee)", db.getConnection());
+            command.Parameters.AddWithValue("@idRequest", requestId);
+            command.Parameters.AddWithValue("@idStatusRequest", 1);
+            command.Parameters.AddWithValue("@dateEdit", DateTime.Now.ToString("dd.MM.yyyy"));
+            command.Parameters.AddWithValue("@idEmployee", 1);
             db.openConnection();
 
             try
             {
                 command.ExecuteNonQuery();
-                MessageBox.Show("Заявка добавлена");
-                loadInfoRequests();
+                MessageBox.Show("История добавлена");
+                loadInfoHistoryRequests();
             }
-            catch
+            catch (Exception exp)
             {
-                MessageBox.Show("Ошибка", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exp.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             db.closeConnection();
@@ -303,7 +331,7 @@ namespace RequestIs.Forms
             command.Parameters.AddWithValue("@content", ContentTextBox.Text);
             command.Parameters.AddWithValue("@idUser", (UserComboBox.SelectedItem as ComboBoxItem).Value);
             command.Parameters.AddWithValue("@idCategory", (CategoryComboBox.SelectedItem as ComboBoxItem).Value);
-            command.Parameters.AddWithValue("@dateRequest", dateRequestTimePicker.Value.ToString("yyyy.MM.dd"));
+            command.Parameters.AddWithValue("@dateRequest", dateRequestTimePicker.Value.ToString("dd.MM.yyyy"));
 
             db.openConnection();
 
@@ -347,7 +375,7 @@ namespace RequestIs.Forms
             MySqlCommand command = new MySqlCommand($"INSERT into history (idRequest, idStatusRequest, dateEdit, idEmployee) values(@idRequest, @idStatusRequest, @dateEdit, @idEmployee)", db.getConnection());
             command.Parameters.AddWithValue("@idRequest", (RequestComboBox.SelectedItem as ComboBoxItem).Value);
             command.Parameters.AddWithValue("@idStatusRequest", (StateRequestComboBox.SelectedItem as ComboBoxItem).Value);
-            command.Parameters.AddWithValue("@dateEdit", DateEditDateTimePicker.Value.ToString("yyyy.MM.dd"));
+            command.Parameters.AddWithValue("@dateEdit", DateEditDateTimePicker.Value.ToString("dd.MM.yyyy"));
             command.Parameters.AddWithValue("@idEmployee", (EmployeeComboBox.SelectedItem as ComboBoxItem).Value);
             db.openConnection();
 
@@ -547,7 +575,7 @@ namespace RequestIs.Forms
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+           System.Windows.Forms.Application.Exit();
         }
 
         private void UsersButton_Click(object sender, EventArgs e)
@@ -573,10 +601,12 @@ namespace RequestIs.Forms
                 loadInfoUsers();
                 loadInfoCategoryComboBox();
                 ReportButton.Visible = true;
+                ReportWordButton.Visible = true;
             }
             else
             {
                 ReportButton.Visible = false;
+                ReportWordButton.Visible = false;
                 if (guna2TabControl1.SelectedIndex == 1)
                 {
                     selectedDataGrid = CategoryDataGrid;
@@ -819,12 +849,33 @@ namespace RequestIs.Forms
             Excel.Workbook workbook = excelApp.Workbooks.Add();
             Excel.Worksheet worksheet = workbook.ActiveSheet;
 
-            int columnIndex = 1; 
+            string fileName = "Отчет о заявках";
+            int visibleColumnCount = 0;
+
+            // Calculate the number of visible columns
             for (int j = 0; j < RequestsDataGrid.Columns.Count; j++)
             {
                 if (RequestsDataGrid.Columns[j].Visible)
                 {
-                    worksheet.Cells[1, columnIndex] = RequestsDataGrid.Columns[j].HeaderText;
+                    visibleColumnCount++;
+                }
+            }
+
+            Excel.Range titleRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, visibleColumnCount]];
+            titleRange.Merge();
+            titleRange.Value = fileName;
+            titleRange.Font.Bold = true;
+            titleRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+
+            int headerRow = 2;
+            int dataStartRow = 3;
+
+            int columnIndex = 1;
+            for (int j = 0; j < RequestsDataGrid.Columns.Count; j++)
+            {
+                if (RequestsDataGrid.Columns[j].Visible)
+                {
+                    worksheet.Cells[headerRow, columnIndex] = RequestsDataGrid.Columns[j].HeaderText;
                     columnIndex++;
                 }
             }
@@ -836,7 +887,7 @@ namespace RequestIs.Forms
                 {
                     if (RequestsDataGrid.Columns[j].Visible)
                     {
-                        worksheet.Cells[i + 2, columnIndex] = RequestsDataGrid.Rows[i].Cells[j].Value;
+                        worksheet.Cells[i + dataStartRow, columnIndex] = RequestsDataGrid.Rows[i].Cells[j].Value;
                         columnIndex++;
                     }
                 }
@@ -850,7 +901,7 @@ namespace RequestIs.Forms
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "Excel File|*.xlsx";
             saveFileDialog1.Title = "Сохранить Excel файл";
-            saveFileDialog1.FileName = "Отчет о заявках";
+            saveFileDialog1.FileName = fileName;
             saveFileDialog1.ShowDialog();
 
             if (saveFileDialog1.FileName != "")
@@ -876,6 +927,220 @@ namespace RequestIs.Forms
         {
             this.Close();
             new Employee().Show();
+        }
+
+        private void SeacrhTextBox_TextChanged(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            selectedDataGrid.Rows.Clear();
+
+            string searchString = $"select requests.id, requests.header, requests.content, concat(users.surname, ' ', users.name, ' ',users.patronymic) as FIOUser, category.name, dateRequest from requests " +
+                $"join users on users.id = requests.idUser " +
+                $"join category on category.id = requests.idCategory " +
+                $"where concat (requests.header, requests.content, concat(users.surname, ' ', users.name, ' ',users.patronymic), category.name, dateRequest) like '%" + SeacrhTextBox.Text + "%'";
+
+            db.openConnection();
+            using (MySqlCommand mySqlCommand = new MySqlCommand(searchString, db.getConnection()))
+            {
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                List<string[]> dataDB = new List<string[]>();
+                while (reader.Read())
+                {
+                    dataDB.Add(new string[reader.FieldCount]);
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        dataDB[dataDB.Count - 1][i] = reader[i].ToString();
+                    }
+                }
+                reader.Close();
+                foreach (string[] s in dataDB)
+                    selectedDataGrid.Rows.Add(s);
+            }
+            db.closeConnection();
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            selectedDataGrid.Rows.Clear();
+            string searchString = $"select * from category " +
+                $"where concat (category.name) like '%" + guna2TextBox1.Text + "%'";
+
+            db.openConnection();
+            using (MySqlCommand mySqlCommand = new MySqlCommand(searchString, db.getConnection()))
+            {
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                List<string[]> dataDB = new List<string[]>();
+                while (reader.Read())
+                {
+                    dataDB.Add(new string[reader.FieldCount]);
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        dataDB[dataDB.Count - 1][i] = reader[i].ToString();
+                    }
+                }
+                reader.Close();
+                foreach (string[] s in dataDB)
+                    selectedDataGrid.Rows.Add(s);
+            }
+            db.closeConnection();
+        }
+
+        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            selectedDataGrid.Rows.Clear();
+
+            string searchString = $"select * from statusrequest " +
+                $"where concat (name) like '%" + guna2TextBox2.Text + "%'";
+
+            db.openConnection();
+            using (MySqlCommand mySqlCommand = new MySqlCommand(searchString, db.getConnection()))
+            {
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                List<string[]> dataDB = new List<string[]>();
+                while (reader.Read())
+                {
+                    dataDB.Add(new string[reader.FieldCount]);
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        dataDB[dataDB.Count - 1][i] = reader[i].ToString();
+                    }
+                }
+                reader.Close();
+                foreach (string[] s in dataDB)
+                    selectedDataGrid.Rows.Add(s);
+            }
+            db.closeConnection();
+        }
+
+        private void guna2TextBox3_TextChanged(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            selectedDataGrid.Rows.Clear();
+
+            string searchString = $"select history.id, requests.header, statusrequest.name, history.dateEdit, concat(employee.surname, ' ', employee.name, ' ', employee.patronymic) from history " +
+                $"inner join requests on history.idRequest = requests.id " +
+                $"inner join statusrequest on history.idStatusRequest = statusrequest.id " +
+                $"inner join employee on history.idEmployee = employee.id "+
+            $"where concat (requests.header, statusrequest.name, history.dateEdit, concat(employee.surname, ' ', employee.name, ' ', employee.patronymic)) like '%" + guna2TextBox3.Text + "%'";
+
+            db.openConnection();
+            using (MySqlCommand mySqlCommand = new MySqlCommand(searchString, db.getConnection()))
+            {
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                List<string[]> dataDB = new List<string[]>();
+                while (reader.Read())
+                {
+                    dataDB.Add(new string[reader.FieldCount]);
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        dataDB[dataDB.Count - 1][i] = reader[i].ToString();
+                    }
+                }
+                reader.Close();
+                foreach (string[] s in dataDB)
+                    selectedDataGrid.Rows.Add(s);
+            }
+            db.closeConnection();
+        }
+        private void ReplaceBookmarkText(Document doc, string bookmarkName, string text)
+        {
+            Bookmark bookmark = doc.Bookmarks[bookmarkName];
+            if (bookmark != null)
+            {
+                Microsoft.Office.Interop.Word.Range range = bookmark.Range;
+                range.Text = text;
+            }
+        }
+        private string reqdateRequest;
+        private string dateEdit;
+        private string reqheader;
+        private string content;
+        private string fioUser;
+        private string inicUser;
+        private string inicEmployee;
+        private void loadInfoVariable()
+        {
+            DB db = new DB();
+            string queryInfo = $"select requests.dateRequest, history.dateEdit, requests.header, requests.content, concat(users.surname, ' ', users.name, ' ', users.patronymic), concat(employee.surname, ' ', LEFT(employee.name,1), '.', LEFT(employee.patronymic,1)), concat(users.surname, ' ', LEFT(users.name,1), '.', LEFT(users.patronymic,1)) from history " +
+                $"inner join requests on history.idRequest = requests.id " +
+                $"inner join users on requests.idUser = users.id " +
+                $"inner join employee on history.idEmployee = employee.id " +
+            $"where requests.id = {selectedDataGrid[0, selectedDataGrid.SelectedCells[0].RowIndex].Value.ToString()}";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                reqdateRequest = reader[0].ToString();
+                dateEdit = reader[1].ToString();
+                reqheader = reader[2].ToString();
+                content = reader[3].ToString();
+                fioUser = reader[4].ToString();
+                inicEmployee = reader[5].ToString();
+                inicUser = reader[6].ToString();
+            }
+            reader.Close();
+
+            db.closeConnection();
+        }
+        private void ReportWordButton_Click(object sender, EventArgs e)
+        {
+            loadInfoVariable();
+            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+
+            Document sourceDoc = wordApp.Documents.Open(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Шаблон акт выполненных работ.docx"));
+            sourceDoc.Content.Copy();
+
+            Document targetDoc = wordApp.Documents.Add();
+            targetDoc.Content.Paste();
+            ReplaceBookmarkText(targetDoc, "ДатаОбращения", reqdateRequest);
+            ReplaceBookmarkText(targetDoc, "ДатаОбращения2", reqdateRequest);
+            ReplaceBookmarkText(targetDoc, "ДатаРедактирования", dateEdit);
+            ReplaceBookmarkText(targetDoc, "ДатаСегодня", DateTime.Now.ToString("dd.MM.yyyy"));
+            ReplaceBookmarkText(targetDoc, "НаименованиеЗаявки", reqheader);
+            ReplaceBookmarkText(targetDoc, "Текст", content);
+            ReplaceBookmarkText(targetDoc, "ФИОПользователя", fioUser);
+            ReplaceBookmarkText(targetDoc, "ИницПользователя", inicUser);
+            ReplaceBookmarkText(targetDoc, "ИницСотрудника", inicEmployee);
+
+            sourceDoc.Close();
+
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog
+            {
+                Filter = "Документ Word (*.docx)|*.docx",
+                Title = "Сохранить скопированный документ в"
+            };
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string targetPath = saveFileDialog1.FileName;
+                targetDoc.SaveAs2(targetPath);
+                targetDoc.Close();
+
+                Document wordDocument = wordApp.Documents.Open(targetPath);
+                wordApp.Visible = true;
+            }
+            else
+            {
+                targetDoc.Close(false);
+                wordApp.Quit();
+            }
         }
     }
 }

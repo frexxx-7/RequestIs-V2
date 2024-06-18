@@ -781,24 +781,44 @@ namespace RequestIs.Forms
             Excel.Workbook workbook = excelApp.Workbooks.Add();
             Excel.Worksheet worksheet = workbook.ActiveSheet;
 
-            int columnIndex = 1; 
+            string fileName = "Отчет о пользователях";
+            int visibleColumnCount = 0;
+
             for (int j = 0; j < UsersDataGrid.Columns.Count; j++)
             {
                 if (UsersDataGrid.Columns[j].Visible)
                 {
-                    worksheet.Cells[1, columnIndex] = UsersDataGrid.Columns[j].HeaderText;
+                    visibleColumnCount++;
+                }
+            }
+
+            Excel.Range titleRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, visibleColumnCount]];
+            titleRange.Merge();
+            titleRange.Value = fileName;
+            titleRange.Font.Bold = true;
+            titleRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+
+            int headerRow = 2;
+            int dataStartRow = 3;
+
+            int columnIndex = 1;
+            for (int j = 0; j < UsersDataGrid.Columns.Count; j++)
+            {
+                if (UsersDataGrid.Columns[j].Visible)
+                {
+                    worksheet.Cells[headerRow, columnIndex] = UsersDataGrid.Columns[j].HeaderText;
                     columnIndex++;
                 }
             }
 
             for (int i = 0; i < UsersDataGrid.Rows.Count; i++)
             {
-                columnIndex = 1; 
+                columnIndex = 1;
                 for (int j = 0; j < UsersDataGrid.Columns.Count; j++)
                 {
                     if (UsersDataGrid.Columns[j].Visible)
                     {
-                        worksheet.Cells[i + 2, columnIndex] = UsersDataGrid.Rows[i].Cells[j].Value;
+                        worksheet.Cells[i + dataStartRow, columnIndex] = UsersDataGrid.Rows[i].Cells[j].Value;
                         columnIndex++;
                     }
                 }
@@ -812,7 +832,7 @@ namespace RequestIs.Forms
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "Excel File|*.xlsx";
             saveFileDialog1.Title = "Сохранить Excel файл";
-            saveFileDialog1.FileName = "Отчет о пользователях";
+            saveFileDialog1.FileName = fileName;
             saveFileDialog1.ShowDialog();
 
             if (saveFileDialog1.FileName != "")
@@ -838,6 +858,134 @@ namespace RequestIs.Forms
         {
             this.Close();
             new Employee().Show();
+        }
+
+        private void SeacrhTextBox_TextChanged(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            selectedDataGrid.Rows.Clear();
+            string searchString = $"select users.id, users.surname, users.name, users.patronymic, users.numberPhone, " +
+                $"users.email, concat(area.name, ' ', region.name, ' ', locality.name, ' ') as address, users.street, users.house, users.apartment from users " +
+                $"join locality on locality.id = users.idLocality " +
+                $"join area on area.id = locality.idArea " +
+                $"join region on region.id = area.idRegion " +
+            $"where concat (users.surname, users.name, users.patronymic, users.numberPhone, users.email, concat(area.name, ' ', region.name, ' ', locality.name, ' '), users.street, users.house, users.apartment) like '%" + SeacrhTextBox.Text + "%'";
+
+            db.openConnection();
+            using (MySqlCommand mySqlCommand = new MySqlCommand(searchString, db.getConnection()))
+            {
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                List<string[]> dataDB = new List<string[]>();
+                while (reader.Read())
+                {
+                    dataDB.Add(new string[reader.FieldCount]);
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        dataDB[dataDB.Count - 1][i] = reader[i].ToString();
+                    }
+                }
+                reader.Close();
+                foreach (string[] s in dataDB)
+                    selectedDataGrid.Rows.Add(s);
+            }
+            db.closeConnection();
+
+        }
+
+        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            selectedDataGrid.Rows.Clear();
+            string searchString = $"select locality.id, concat(area.name, ' ', region.name) as address, locality.type, locality.name from locality " +
+                $"join area on area.id = locality.idArea " +
+                $"join region on region.id = area.idRegion " +
+            $"where concat (concat(area.name, ' ', region.name), locality.type, locality.name) like '%" + guna2TextBox1.Text + "%'";
+
+            db.openConnection();
+            using (MySqlCommand mySqlCommand = new MySqlCommand(searchString, db.getConnection()))
+            {
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                List<string[]> dataDB = new List<string[]>();
+                while (reader.Read())
+                {
+                    dataDB.Add(new string[reader.FieldCount]);
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        dataDB[dataDB.Count - 1][i] = reader[i].ToString();
+                    }
+                }
+                reader.Close();
+                foreach (string[] s in dataDB)
+                    selectedDataGrid.Rows.Add(s);
+            }
+            db.closeConnection();
+        }
+
+        private void guna2TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            selectedDataGrid.Rows.Clear();
+            string searchString = $"select area.id,  region.name, area.name from area " +
+                $"join region on region.id = area.idRegion " +
+            $"where concat (region.name, area.name) like '%" + guna2TextBox2.Text + "%'";
+
+            db.openConnection();
+            using (MySqlCommand mySqlCommand = new MySqlCommand(searchString, db.getConnection()))
+            {
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                List<string[]> dataDB = new List<string[]>();
+                while (reader.Read())
+                {
+                    dataDB.Add(new string[reader.FieldCount]);
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        dataDB[dataDB.Count - 1][i] = reader[i].ToString();
+                    }
+                }
+                reader.Close();
+                foreach (string[] s in dataDB)
+                    selectedDataGrid.Rows.Add(s);
+            }
+            db.closeConnection();
+        }
+
+        private void guna2TextBox3_TextChanged(object sender, EventArgs e)
+        {
+            DB db = new DB();
+
+            selectedDataGrid.Rows.Clear();
+            string searchString = $"select region.id,  region.name from region " +
+                $"where concat (region.name) like '%" + guna2TextBox3.Text + "%'";
+
+            db.openConnection();
+            using (MySqlCommand mySqlCommand = new MySqlCommand(searchString, db.getConnection()))
+            {
+                MySqlDataReader reader = mySqlCommand.ExecuteReader();
+
+                List<string[]> dataDB = new List<string[]>();
+                while (reader.Read())
+                {
+                    dataDB.Add(new string[reader.FieldCount]);
+
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        dataDB[dataDB.Count - 1][i] = reader[i].ToString();
+                    }
+                }
+                reader.Close();
+                foreach (string[] s in dataDB)
+                    selectedDataGrid.Rows.Add(s);
+            }
+            db.closeConnection();
         }
     }
 }
