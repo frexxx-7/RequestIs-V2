@@ -60,7 +60,8 @@ namespace RequestIs.Forms
 
             EmployeeDataGrid.Rows.Clear();
 
-            string query = $"select employee.id, employee.surname, employee.name, employee.patronymic, employee.numberPhone from employee";
+            string query = $"select employee.id, employee.surname, employee.name, employee.patronymic, employee.numberPhone, positions.name from employee " +
+                $"left join positions on positions.id = employee.idPosition";
                 
 
             db.openConnection();
@@ -103,6 +104,10 @@ namespace RequestIs.Forms
             selectedDataGrid = EmployeeDataGrid;
             loadInfoEmployee();
             selectedTab = 0;
+            loadInfoPositionComboBox();
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
 
         private void MainButton_Click(object sender, EventArgs e)
@@ -113,11 +118,12 @@ namespace RequestIs.Forms
         private void addEmployeeInDB()
         {
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand($"INSERT into employee (surname, name, patronymic, numberPhone) values(@surname, @name, @patronymic, @numberPhone)", db.getConnection());
+            MySqlCommand command = new MySqlCommand($"INSERT into employee (surname, name, patronymic, numberPhone, idPosition) values(@surname, @name, @patronymic, @numberPhone, @idPosition)", db.getConnection());
             command.Parameters.AddWithValue("@surname", SurnameTextBox.Text);
             command.Parameters.AddWithValue("@name", NameTextBox.Text);
             command.Parameters.AddWithValue("@patronymic", PatronymicTextBox.Text);
             command.Parameters.AddWithValue("@numberPhone", NumberPhoneTextBox.Text);
+            command.Parameters.AddWithValue("@idPosition", (PositionComboBox.SelectedItem as ComboBoxItem).Value);
             db.openConnection();
 
             try
@@ -133,14 +139,37 @@ namespace RequestIs.Forms
 
             db.closeConnection();
         }
+        private void loadInfoPositionComboBox()
+        {
+            PositionComboBox.Items.Clear();
+
+            DB db = new DB();
+            string queryInfo = $"SELECT id, name FROM positions";
+            MySqlCommand mySqlCommand = new MySqlCommand(queryInfo, db.getConnection());
+
+            db.openConnection();
+
+            MySqlDataReader reader = mySqlCommand.ExecuteReader();
+            while (reader.Read())
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Text = $" {reader[1]}";
+                item.Value = reader[0];
+                PositionComboBox.Items.Add(item);
+            }
+            reader.Close();
+
+            db.closeConnection();
+        }
         private void updateEmployeeInDB(string idEmployee)
         {
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand($"update employee set surname=@surname, name=@name, patronymic=@patronymic, numberPhone=@numberPhone where id = {idEmployee}", db.getConnection());
+            MySqlCommand command = new MySqlCommand($"update employee set surname=@surname, name=@name, patronymic=@patronymic, numberPhone=@numberPhone, idPosition= @idPosition where id = {idEmployee}", db.getConnection());
             command.Parameters.AddWithValue("@surname", SurnameTextBox.Text);
             command.Parameters.AddWithValue("@name", NameTextBox.Text);
             command.Parameters.AddWithValue("@patronymic", PatronymicTextBox.Text);
             command.Parameters.AddWithValue("@numberPhone", NumberPhoneTextBox.Text);
+            command.Parameters.AddWithValue("@idPosition", (PositionComboBox.SelectedItem as ComboBoxItem).Value);
 
             db.openConnection();
 
@@ -249,6 +278,7 @@ namespace RequestIs.Forms
         private void guna2TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedTab = guna2TabControl1.SelectedIndex;
+            loadInfoPositionComboBox();
 
             if (guna2TabControl1.SelectedIndex == 0)
             {
@@ -365,17 +395,42 @@ namespace RequestIs.Forms
                 }
             }
         }
+        private (string fullName, string date) LoadDirectorInfo()
+        {
+            string directorInfo = "";
+            string date = DateTime.Now.ToString("dd.MM.yyyy");
+            string query = "SELECT surname, name, patronymic FROM employee WHERE idPosition = (SELECT id FROM positions WHERE name = 'Директор') LIMIT 1";
 
+            using (DB db = new DB())
+            {
+                db.openConnection();
+                using (MySqlCommand command = new MySqlCommand(query, db.getConnection()))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string surname = reader["surname"].ToString();
+                            string name = reader["name"].ToString();
+                            string patronymic = reader["patronymic"].ToString();
+                            directorInfo = $"{surname} {name} {patronymic}";
+                        }
+                    }
+                }
+                db.closeConnection();
+            }
+
+            return (directorInfo, date);
+        }
         private void ReportButton_Click(object sender, EventArgs e)
         {
             Excel.Application excelApp = new Excel.Application();
             Excel.Workbook workbook = excelApp.Workbooks.Add();
             Excel.Worksheet worksheet = workbook.ActiveSheet;
 
-            string fileName = "Отчет о сотрудниках"; 
+            string fileName = "Отчет о сотрудниках";
             int visibleColumnCount = 0;
 
-            // Calculate the number of visible columns
             for (int j = 0; j < EmployeeDataGrid.Columns.Count; j++)
             {
                 if (EmployeeDataGrid.Columns[j].Visible)
@@ -384,14 +439,23 @@ namespace RequestIs.Forms
                 }
             }
 
-            Excel.Range titleRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, visibleColumnCount]];
+            int titleRow = 6;
+            Excel.Range titleRange = worksheet.Range[worksheet.Cells[titleRow, 1], worksheet.Cells[titleRow, visibleColumnCount]];
             titleRange.Merge();
             titleRange.Value = fileName;
             titleRange.Font.Bold = true;
             titleRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
 
-            int headerRow = 2;
-            int dataStartRow = 3;
+            (string directorName, string currentDate) = LoadDirectorInfo();
+
+            int resolutionColumn = 5;
+            worksheet.Cells[1, resolutionColumn] = "Директор:";
+            worksheet.Cells[2, resolutionColumn] = directorName;
+            worksheet.Cells[3, resolutionColumn] = currentDate;
+            worksheet.Cells[4, resolutionColumn] = "Подпись:";
+
+            int headerRow = 7;
+            int dataStartRow = 8;
 
             int columnIndex = 1;
             for (int j = 0; j < EmployeeDataGrid.Columns.Count; j++)
@@ -417,8 +481,7 @@ namespace RequestIs.Forms
             }
 
             worksheet.Columns.AutoFit();
-
-            Excel.Range usedRange = worksheet.UsedRange;
+            Excel.Range usedRange = worksheet.Range[worksheet.Cells[headerRow, 1], worksheet.Cells[EmployeeDataGrid.Rows.Count + dataStartRow - 1, visibleColumnCount]];
             usedRange.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
 
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();

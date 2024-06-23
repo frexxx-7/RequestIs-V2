@@ -273,6 +273,9 @@ namespace RequestIs.Forms
             loadInfoCategoryComboBox();
             loadInfoHistoryRequests();
             selectedTab = 0;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
         private void addRequestInDB()
         {
@@ -842,7 +845,33 @@ namespace RequestIs.Forms
                 }
             }
         }
+        private (string fullName, string date) LoadDirectorInfo()
+        {
+            string directorInfo = "";
+            string date = DateTime.Now.ToString("dd.MM.yyyy");
+            string query = "SELECT surname, name, patronymic FROM employee WHERE idPosition = (SELECT id FROM positions WHERE name = 'Директор') LIMIT 1";
 
+            using (DB db = new DB())
+            {
+                db.openConnection();
+                using (MySqlCommand command = new MySqlCommand(query, db.getConnection()))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            string surname = reader["surname"].ToString();
+                            string name = reader["name"].ToString();
+                            string patronymic = reader["patronymic"].ToString();
+                            directorInfo = $"{surname} {name} {patronymic}";
+                        }
+                    }
+                }
+                db.closeConnection();
+            }
+
+            return (directorInfo, date);
+        }
         private void ReportButton_Click(object sender, EventArgs e)
         {
             Excel.Application excelApp = new Excel.Application();
@@ -852,7 +881,6 @@ namespace RequestIs.Forms
             string fileName = "Отчет о заявках";
             int visibleColumnCount = 0;
 
-            // Calculate the number of visible columns
             for (int j = 0; j < RequestsDataGrid.Columns.Count; j++)
             {
                 if (RequestsDataGrid.Columns[j].Visible)
@@ -861,14 +889,23 @@ namespace RequestIs.Forms
                 }
             }
 
-            Excel.Range titleRange = worksheet.Range[worksheet.Cells[1, 1], worksheet.Cells[1, visibleColumnCount]];
+            int titleRow = 6;
+            Excel.Range titleRange = worksheet.Range[worksheet.Cells[titleRow, 1], worksheet.Cells[titleRow, visibleColumnCount]];
             titleRange.Merge();
             titleRange.Value = fileName;
             titleRange.Font.Bold = true;
             titleRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
 
-            int headerRow = 2;
-            int dataStartRow = 3;
+            (string directorName, string currentDate) = LoadDirectorInfo();
+
+            int resolutionColumn = 5;
+            worksheet.Cells[1, resolutionColumn] = "Директор:";
+            worksheet.Cells[2, resolutionColumn] = directorName;
+            worksheet.Cells[3, resolutionColumn] = currentDate;
+            worksheet.Cells[4, resolutionColumn] = "Подпись:";
+
+            int headerRow = 7;
+            int dataStartRow = 8;
 
             int columnIndex = 1;
             for (int j = 0; j < RequestsDataGrid.Columns.Count; j++)
@@ -894,8 +931,7 @@ namespace RequestIs.Forms
             }
 
             worksheet.Columns.AutoFit();
-
-            Excel.Range usedRange = worksheet.UsedRange;
+            Excel.Range usedRange = worksheet.Range[worksheet.Cells[headerRow, 1], worksheet.Cells[RequestsDataGrid.Rows.Count + dataStartRow - 1, visibleColumnCount]];
             usedRange.Borders.LineStyle = Excel.XlLineStyle.xlContinuous;
 
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
@@ -921,6 +957,8 @@ namespace RequestIs.Forms
             workbook = null;
             excelApp = null;
             GC.Collect();
+
+
         }
 
         private void EmployeeButton_Click(object sender, EventArgs e)
@@ -1101,6 +1139,8 @@ namespace RequestIs.Forms
         }
         private void ReportWordButton_Click(object sender, EventArgs e)
         {
+            (string directorName, string currentDate) = LoadDirectorInfo();
+
             loadInfoVariable();
             Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
 
@@ -1118,6 +1158,8 @@ namespace RequestIs.Forms
             ReplaceBookmarkText(targetDoc, "ФИОПользователя", fioUser);
             ReplaceBookmarkText(targetDoc, "ИницПользователя", inicUser);
             ReplaceBookmarkText(targetDoc, "ИницСотрудника", inicEmployee);
+            ReplaceBookmarkText(targetDoc, "ФИОДиректор", directorName);
+            ReplaceBookmarkText(targetDoc, "ДатаСегодня2", currentDate);
 
             sourceDoc.Close();
 
@@ -1141,6 +1183,12 @@ namespace RequestIs.Forms
                 targetDoc.Close(false);
                 wordApp.Quit();
             }
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            new Outfit().Show();
+            this.Close();
         }
     }
 }

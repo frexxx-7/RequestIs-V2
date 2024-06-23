@@ -47,8 +47,8 @@ namespace RequestIs.Forms
             {
                 DB db = new DB();
 
-                MySqlCommand command = new MySqlCommand("insert into employeeuser " +
-                    "(login, password_)" +
+                MySqlCommand command = new MySqlCommand("insert into employee " +
+                    "(login, password)" +
                     "values (@login, @password)" +
                     "" +
                     "", db.getConnection());

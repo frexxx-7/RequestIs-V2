@@ -264,7 +264,7 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Main_Load);
             this.guna2Panel1.ResumeLayout(false);
             this.HeadPanel.ResumeLayout(false);
             this.ContentPanel.ResumeLayout(false);

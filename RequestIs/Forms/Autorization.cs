@@ -36,7 +36,7 @@ namespace RequestIs
             DB db = new DB();
             DataTable table = new DataTable();
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT id, login, password_ FROM employeeuser WHERE login = @login AND password_ = @password", db.getConnection());
+            MySqlCommand command = new MySqlCommand("SELECT id, login, password, concat(employee.surname, ' ', LEFT(employee.name,1), '.', LEFT(employee.patronymic,1)) FROM employee WHERE login = @login AND password = @password", db.getConnection());
 
             command.Parameters.Add("@login", MySqlDbType.VarChar).Value = LoginTextBox.Text;
             command.Parameters.Add("@password", MySqlDbType.VarChar).Value = PasswordTextBox.Text;
@@ -46,6 +46,7 @@ namespace RequestIs
             if (table.Rows.Count > 0)
             {
                 Main.idUser = table.Rows[0]["id"].ToString();
+                Main.fio = table.Rows[0][3].ToString();
                 Main main = new Main();
                 this.Hide();
                 main.Show();

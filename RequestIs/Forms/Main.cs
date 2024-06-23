@@ -13,6 +13,7 @@ namespace RequestIs.Forms
     public partial class Main : Form
     {
         public static string idUser;
+        public static string fio;
         public Main()
         {
             InitializeComponent();
@@ -44,6 +45,13 @@ namespace RequestIs.Forms
         {
             this.Close();
             new Employee().Show();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Sizable;
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
         }
     }
 }

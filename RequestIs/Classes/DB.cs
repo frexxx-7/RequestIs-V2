@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RequestIs.Classes
 {
-    internal class DB
+    internal class DB: IDisposable
     {
         public MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password='root';database=RequestIs");
 
@@ -25,6 +25,14 @@ namespace RequestIs.Classes
         public MySqlConnection getConnection()
         {
             return connection;
+        }
+        public void Dispose()
+        {
+            if (connection != null)
+            {
+                connection.Dispose();
+                connection = null;
+            }
         }
     }
 }

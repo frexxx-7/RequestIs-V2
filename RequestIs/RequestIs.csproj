@@ -77,6 +77,12 @@
     <Compile Include="Forms\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Outfit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Outfit.Designer.cs">
+      <DependentUpon>Outfit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Registration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Outfit.resx">
+      <DependentUpon>Outfit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Registration.resx">
       <DependentUpon>Registration.cs</DependentUpon>
