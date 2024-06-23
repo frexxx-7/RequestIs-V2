@@ -310,7 +310,7 @@ namespace RequestIs.Forms
             command.Parameters.AddWithValue("@idRequest", requestId);
             command.Parameters.AddWithValue("@idStatusRequest", 1);
             command.Parameters.AddWithValue("@dateEdit", DateTime.Now.ToString("dd.MM.yyyy"));
-            command.Parameters.AddWithValue("@idEmployee", 1);
+            command.Parameters.AddWithValue("@idEmployee", Main.idUser);
             db.openConnection();
 
             try
@@ -605,11 +605,13 @@ namespace RequestIs.Forms
                 loadInfoCategoryComboBox();
                 ReportButton.Visible = true;
                 ReportWordButton.Visible = true;
+                guna2Button1.Visible = true;
             }
             else
             {
                 ReportButton.Visible = false;
                 ReportWordButton.Visible = false;
+                guna2Button1.Visible = false;
                 if (guna2TabControl1.SelectedIndex == 1)
                 {
                     selectedDataGrid = CategoryDataGrid;

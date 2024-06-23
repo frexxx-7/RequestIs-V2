@@ -351,7 +351,7 @@ namespace RequestIs.Forms
         private void addAreaInDB()
         {
             DB db = new DB();
-            MySqlCommand command = new MySqlCommand($"INSERT into area (idRegion, name) values(@idRegion, @name)", db.getConnection());
+            MySqlCommand command = new MySqlCommand($"INSERT into area (idRegion, name) values(@idRegion, @name )", db.getConnection());
             command.Parameters.AddWithValue("@idRegion", (RegionComboBox.SelectedItem as ComboBoxItem).Value);
             command.Parameters.AddWithValue("@name", NameAreaTextBox.Text);
             db.openConnection();
@@ -373,8 +373,8 @@ namespace RequestIs.Forms
         {
             DB db = new DB();
             MySqlCommand command = new MySqlCommand($"update area set idRegion=@idRegion, name=@name where id = {idArea}", db.getConnection());
-            command.Parameters.AddWithValue("@idArea", (AreaComboBox.SelectedItem as ComboBoxItem).Value);
-            command.Parameters.AddWithValue("@name", NameLocTextBox.Text);
+            command.Parameters.AddWithValue("@idRegion", (RegionComboBox.SelectedItem as ComboBoxItem).Value);
+            command.Parameters.AddWithValue("@name", NameAreaTextBox.Text);
 
             db.openConnection();
 
@@ -424,7 +424,7 @@ namespace RequestIs.Forms
             {
                 command.ExecuteNonQuery();
                 MessageBox.Show("Регион изменен");
-                loadInfoArea();
+                loadInfoRegions();
 
             }
             catch
